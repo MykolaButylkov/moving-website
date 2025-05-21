@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: grid;
+  place-items: center;
+}
+
+.bg-img {
+  width: 100%;
+  max-width: 430px;
+  height: auto;
+  display: block;
+}
+
+.hotspots {
+  position: absolute;
+  top: 51vh;
+  left: 0;
+  width: 100%;
+  max-width: 430px;
+  height: auto;
+  margin: 0 auto;
+  pointer-events: none;
+}
+
+.hotspot {
+  position: absolute;
+  width: 67px;
+  height: 70px;
+  background-color: rgba(102, 102, 102, 0); /* Временно для отладки */
+  pointer-events: auto;
+  border-radius: 10%;
+}
+
+/* Пример позиционирования кнопок, настрой под свой фон */
+#btn1 { left: 6%; width: 79px; height: 125px;}
+#btn2 { left: 30%; height: 100px;}
+#btn3 { left: 53%; height: 100px;}
+#btn4 { left: 74%; width: 79px; height: 125px;}
+
+.popup {
+  position: absolute;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  display: none;
+  z-index: 100;
+  width: 180px;
+}
+
+.popup a {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.popup .whatsapp {
+  background-color: #25D366;
+}
+
+.popup .call {
+  background-color: orange;
+}
+
+.popup .close {
+  display: block;
+  text-align: right;
+  font-size: 18px;
+  cursor: pointer;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* Расположение всплывающих окон — подгони как удобно */
+#popup1 { top: 60%; left: 10%; }
+#popup2 { top: 60%; left: 30%; }
+#popup3 { top: 60%; left: 50%; }
+#popup4 { top: 60%; left: 50%; }
+
+.lang-switcher {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.lang-btn {
+  width: 40px;
+  height: 28px;
+  background-size: cover;
+  background-position: center;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+}
+/* Фоны для неактивных кнопок */
+.lang-btn[data-lang="ru"] {
+  background-image: url('https://flagcdn.com/w40/ru.png');
+}
+
+.lang-btn[data-lang="ua"] {
+  background-image: url('https://flagcdn.com/w40/ua.png');
+}
+
+.lang-btn[data-lang="en"] {
+  background-image: url('https://flagcdn.com/w40/gb.png');
+}
+
+.lang-btn[data-lang="he"] {
+  background-image: url('https://flagcdn.com/w40/il.png');
+}
+/* Активная кнопка */
+.lang-btn.active {
+  outline: 2px solid orange;
+  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+}
+
+
