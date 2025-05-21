@@ -324,5 +324,53 @@
       activePopup = null;
     }
   </script>
+  <script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !phone) {
+        alert("Пожалуйста, заполните имя и телефон.");
+        return;
+      }
+
+      const telegramMessage = `
+    🚛 <b>Новая заявка:</b>
+    👤 <b>Имя:</b> ${name}
+    📱 <b>Телефон:</b> ${phone}
+    💬 <b>Сообщение:</b> ${message || 'Нет'}
+      `;
+
+      const token = '7945535270:AAGspWqiUo2PutEkY3RBW8SSeIB8ceufskE';
+      const chat_id = '1484258335';
+      const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          chat_id,
+          text: telegramMessage,
+          parse_mode: 'HTML'
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.ok) {
+          alert("✅ Заявка успешно отправлена!");
+          document.querySelector('form').reset();
+        } else {
+          alert("❌ Ошибка при отправке. Попробуйте позже.");
+        }
+      })
+      .catch(() => alert("⚠️ Не удалось отправить заявку."));
+    });
+  </script>
+
 </body>
 </html>
