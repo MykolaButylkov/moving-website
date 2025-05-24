@@ -310,7 +310,8 @@
         message: "Повідомлення",
         button: "Відправити",
         bg: "img/background_form_jungle.png",
-        bg_main: "img/background_ua.png"
+        bg_main: "img/background_ua.png",
+        pageTitle: "Переїзд без стресу"
       },
       ru: {
         title: "Оставить заявку",
@@ -319,7 +320,8 @@
         message: "Сообщение",
         button: "Отправить",
         bg: "img/background_form_jungle.png",
-        bg_main: "img/background.png"
+        bg_main: "img/background.png",
+        pageTitle: "Переезд без стресса"
       },
       en: {
         title: "Get a Quote",
@@ -328,7 +330,8 @@
         message: "Message",
         button: "Send",
         bg: "img/background_form_jungle.png",
-        bg_main: "img/background_en.png"
+        bg_main: "img/background_en.png",
+        pageTitle: "Stress-Free Moving"
       },
       he: {
         title: "קבל הצעת מחיר",
@@ -337,7 +340,8 @@
         message: "הודעה",
         button: "שלח",
         bg: "img/background_form_jungle.png",
-        bg_main: "img/background_he.png"
+        bg_main: "img/background_he.png",
+        pageTitle: "מעבר דירה בלי לחץ"
       }
     };
 
@@ -360,6 +364,7 @@
         document.getElementById('submit-btn').textContent = t.button;
         container.style.backgroundImage = `url('${t.bg}')`;
         mainBackground.src = `${t.bg_main}`;
+        document.title = t.pageTitle;
       });
     });
 
