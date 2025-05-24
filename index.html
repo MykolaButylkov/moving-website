@@ -212,6 +212,24 @@
       }
     });
   </script>
+  <script>
+  // Автоматическое переключение языка по URL параметру
+  function getLangFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const lang = params.get('lang');
+    const allowed = ['ru', 'ua', 'en', 'he'];
+    return allowed.includes(lang) ? lang : null;
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const lang = getLangFromUrl();
+    if (lang) {
+      const targetBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
+      if (targetBtn) targetBtn.click(); // имитируем клик по кнопке
+    }
+  });
+</script>
+
 </head>
 <body>
   <div id="privacy-popup" class="privacy-popup">
