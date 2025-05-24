@@ -200,8 +200,30 @@
 
     gtag('config', 'AW-17102315198');
   </script>
+  <script>
+    function acceptPrivacy() {
+      localStorage.setItem("privacyAccepted", "true");
+      document.getElementById("privacy-popup").style.display = "none";
+    }
+
+    window.addEventListener("load", () => {
+      if (!localStorage.getItem("privacyAccepted")) {
+        document.getElementById("privacy-popup").style.display = "block";
+      }
+    });
+  </script>
 </head>
 <body>
+  <div id="privacy-popup" class="privacy-popup">
+  <div class="privacy-content">
+    <p>
+      Мы используем файлы cookie и обрабатываем персональные данные, чтобы улучшить работу сайта. Подробнее читайте в
+      <a href="/privacy-policy.html" target="_blank">Политике конфиденциальности</a>.
+    </p>
+    <button onclick="acceptPrivacy()">Принять</button>
+  </div>
+</div>
+
 
   <div class="container">
     <img src="img/background.png" alt="Переезд без стресса" class="bg-img" />
