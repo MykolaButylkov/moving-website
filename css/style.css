@@ -10,6 +10,21 @@ body, html {
   background-color: #36A9E1;
 }
 
+#preloader {
+  position: fixed;
+  inset: 0;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#preloader img {
+  width: 160px;
+  height: auto;
+}
+
 .container {
   display: grid;
   place-items: center;

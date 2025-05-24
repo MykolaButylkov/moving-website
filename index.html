@@ -229,9 +229,21 @@
     }
   });
 </script>
+<script>
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    if (preloader) {
+      preloader.style.opacity = "0";
+      setTimeout(() => preloader.remove(), 500);
+    }
+  });
+</script>
 
 </head>
 <body>
+  <div id="preloader">
+    <img src="img/truck-cat-loader.gif" alt="Загрузка..." />
+  </div>
   <div id="privacy-popup" class="privacy-popup">
   <div class="privacy-content">
     <p>
