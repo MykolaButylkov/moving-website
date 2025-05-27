@@ -260,6 +260,12 @@
     <img src="img/background_ua.png" alt="bg-img" style="opacity: 0; position: absolute; width: 1px; top:0; z-index: 0;">
     <img src="img/background_en.png" alt="bg-img" style="opacity: 0; position: absolute; width: 1px; top:0; z-index: 0;">
     <img src="img/background.png" id="mainBackgroundImg" alt="Переезд без стресса" class="bg-img" style="z-index: 4;" />
+    
+    <div class="call-container">
+      <button id="call-button" onclick="makeCall()">Позвонить</button>
+      <span id="phone-number">+9725486759</span>
+    </div>
+    
 
     <div class="hotspots">
       <div id="btn1" class="hotspot" onclick="togglePopup('popup1')"></div>
@@ -323,7 +329,8 @@
         button: "Відправити",
         bg: "img/background_form_jungle.png",
         bg_main: "img/background_ua.png",
-        pageTitle: "Переїзд без стресу"
+        pageTitle: "Переїзд без стресу",
+        call: "Подзвонити"
       },
       ru: {
         title: "Оставить заявку",
@@ -333,7 +340,8 @@
         button: "Отправить",
         bg: "img/background_form_jungle.png",
         bg_main: "img/background.png",
-        pageTitle: "Переезд без стресса"
+        pageTitle: "Переезд без стресса",
+        call: "Позвонить"
       },
       en: {
         title: "Get a Quote",
@@ -343,7 +351,8 @@
         button: "Send",
         bg: "img/background_form_jungle.png",
         bg_main: "img/background_en.png",
-        pageTitle: "Stress-Free Moving"
+        pageTitle: "Stress-Free Moving",
+        call: "Call",
       },
       he: {
         title: "קבל הצעת מחיר",
@@ -353,13 +362,16 @@
         button: "שלח",
         bg: "img/background_form_jungle.png",
         bg_main: "img/background_he.png",
-        pageTitle: "מעבר דירה בלי לחץ"
+        pageTitle: "מעבר דירה בלי לחץ",
+        call: "התקשר",
       }
     };
 
     const container = document.getElementById('form-container');
     const langButtons = document.querySelectorAll('.lang-btn');
     const mainBackground = document.getElementById('mainBackgroundImg');
+    
+
 
     langButtons.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -377,8 +389,13 @@
         container.style.backgroundImage = `url('${t.bg}')`;
         mainBackground.src = `${t.bg_main}`;
         document.title = t.pageTitle;
+        document.getElementById('call-button').textContent = t.call;
       });
     });
+
+    function makeCall() {
+      window.location.href = "tel:+9725486759";
+    }
 
     // Установка фонового изображения по умолчанию
     container.style.backgroundImage = `url('${translations.ru.bg}')`;
