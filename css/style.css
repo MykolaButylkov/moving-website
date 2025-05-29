@@ -10,6 +10,21 @@ body, html {
   background-color: #36A9E1;
 }
 
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+  -webkit-tap-highlight-color: transparent; /* убирает подсветку при клике на iOS */
+}
+
+a:visited,
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+
 #preloader {
   position: fixed;
   inset: 0;
