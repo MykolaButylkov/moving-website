@@ -328,7 +328,7 @@
   </header>
 
 
-  <script>
+  <!-- <script>
     const translations = {
       ua: {
         title: "Залишити заявку",
@@ -380,6 +380,8 @@
     const langButtons = document.querySelectorAll('.lang-btn');
     const mainBackground = document.getElementById('mainBackgroundImg');
     
+    // Установка фонового изображения по умолчанию
+    container.style.backgroundImage = `url('${translations.ru.bg}')`;
 
 
     langButtons.forEach(btn => {
@@ -398,7 +400,7 @@
         container.style.backgroundImage = `url('${t.bg}')`;
         mainBackground.src = `${t.bg_main}`;
         document.title = t.pageTitle;
-        document.getElementById('call-button').textContent = t.call;
+        document.getElementById('call-button').textContent = t.call;        
       });
     });
 
@@ -406,8 +408,7 @@
       window.location.href = "tel:+9725486759";
     }
 
-    // Установка фонового изображения по умолчанию
-    container.style.backgroundImage = `url('${translations.ru.bg}')`;
+
 
     let activePopup = null;
 
@@ -425,7 +426,128 @@
       document.getElementById(id).style.display = 'none';
       activePopup = null;
     }
+  </script> -->
+  <script>
+  const translations = {
+    ua: {
+      title: "Залишити заявку",
+      name: "Ім'я",
+      phone: "Телефон",
+      message: "Повідомлення",
+      button: "Відправити",
+      bg: "img/background_form_jungle.png",
+      bg_main: "img/background_ua.png",
+      pageTitle: "Переїзд без стресу",
+      call: "Подзвонити"
+    },
+    ru: {
+      title: "Оставить заявку",
+      name: "Имя",
+      phone: "Телефон",
+      message: "Сообщение",
+      button: "Отправить",
+      bg: "img/background_form_jungle.png",
+      bg_main: "img/background.png",
+      pageTitle: "Переезд без стресса",
+      call: "Позвонить"
+    },
+    en: {
+      title: "Get a Quote",
+      name: "Name",
+      phone: "Phone",
+      message: "Message",
+      button: "Send",
+      bg: "img/background_form_jungle.png",
+      bg_main: "img/background_en.png",
+      pageTitle: "Stress-Free Moving",
+      call: "Call"
+    },
+    he: {
+      title: "קבל הצעת מחיר",
+      name: "שם",
+      phone: "נייד",
+      message: "הודעה",
+      button: "שלח",
+      bg: "img/background_form_jungle.png",
+      bg_main: "img/background_he.png",
+      pageTitle: "מעבר דירה בלי לחץ",
+      call: "התקשר"
+    }
+  };
+
+  const container = document.getElementById('form-container');
+  const langButtons = document.querySelectorAll('.lang-btn');
+  const mainBackground = document.getElementById('mainBackgroundImg');
+  const callBtn = document.getElementById('call-button');
+
+  function applyLanguage(lang) {
+    const t = translations[lang] || translations['ru'];
+
+    document.getElementById('form-title').textContent = t.title;
+    document.getElementById('name').placeholder = t.name;
+    document.getElementById('phone').placeholder = t.phone;
+    document.getElementById('message').placeholder = t.message;
+    document.getElementById('submit-btn').textContent = t.button;
+    document.title = t.pageTitle;
+    container.style.backgroundImage = `url('${t.bg}')`;
+    mainBackground.src = `${t.bg_main}`;
+    callBtn.textContent = t.call;
+  }
+
+  // Установка языка из URL или по умолчанию
+  window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const lang = urlParams.get('lang') || 'ru';
+    applyLanguage(lang);
+
+    const selectedBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
+    if (selectedBtn) {
+      langButtons.forEach(b => b.classList.remove('active'));
+      selectedBtn.classList.add('active');
+    }
+  });
+
+  // Обработчик переключения языка
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+
+      // Обновляем URL
+      const newUrl = `${window.location.pathname}?lang=${lang}`;
+      window.history.pushState({ path: newUrl }, '', newUrl);
+
+      // Применяем перевод
+      applyLanguage(lang);
+
+      langButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // Функция для звонка
+  function makeCall() {
+    window.location.href = "tel:+9725486759";
+  }
+
+  // Попапы
+  let activePopup = null;
+
+  function togglePopup(id) {
+    if (activePopup === id) {
+      closePopup(id);
+    } else {
+      document.querySelectorAll('.popup').forEach(p => p.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+      activePopup = id;
+    }
+  }
+
+  function closePopup(id) {
+    document.getElementById(id).style.display = 'none';
+    activePopup = null;
+  }
   </script>
+
   <script>
     document.querySelector('form').addEventListener('submit', function(e) {
       e.preventDefault();
