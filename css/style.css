@@ -68,8 +68,8 @@ a:focus {
 }
 
 .privacy-popup a {
-  color: #007BFF;
-  text-decoration: underline;
+  color: #007BFF !important;
+  text-decoration: underline !important;
 }
 
 .privacy-popup button {
