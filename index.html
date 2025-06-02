@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Переезд без стресса</title>
   <link rel="icon" href="img/favicon.png" type="image/png">
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/chat_bot.css" />
   <style>
     * {
       margin: 0;
@@ -13,7 +15,8 @@
       box-sizing: border-box;
     }
 
-    body, html {
+    body,
+    html {
       height: 100%;
       font-family: Arial, sans-serif;
     }
@@ -79,15 +82,18 @@
     }
 
     .form-wrapper {
-      background: rgba(255, 255, 255, 0.92); /* почти белый, но с прозрачностью */
-      backdrop-filter: blur(6px); /* лёгкое размытие фона */
+      background: rgba(255, 255, 255, 0.92);
+      /* почти белый, но с прозрачностью */
+      backdrop-filter: blur(6px);
+      /* лёгкое размытие фона */
       border-radius: 20px;
       padding: 30px;
       max-width: 420px;
       width: 90%;
       margin: 0 auto;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-      border: 2px solid #e6d4aa; /* золотистая рамка, как на светлом холсте */
+      border: 2px solid #e6d4aa;
+      /* золотистая рамка, как на светлом холсте */
       font-family: 'Arial', sans-serif;
       position: relative;
       z-index: 5;
@@ -97,7 +103,8 @@
       font-size: 1.8em;
       text-align: center;
       margin-bottom: 20px;
-      color: #3a2f1d; /* цвет древесной коры */
+      color: #3a2f1d;
+      /* цвет древесной коры */
       font-weight: bold;
     }
 
@@ -110,7 +117,7 @@
       outline: none;
       transition: border-color 0.3s ease;
       background: #fffefc;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 
     .form-wrapper input:focus,
@@ -180,24 +187,33 @@
       cursor: pointer;
     }
 
-    .lang-btn[data-lang="ru"] { background-image: url('https://flagcdn.com/w40/ru.png'); }
-    .lang-btn[data-lang="ua"] { background-image: url('https://flagcdn.com/w40/ua.png'); }
-    .lang-btn[data-lang="en"] { background-image: url('https://flagcdn.com/w40/gb.png'); }
-    .lang-btn[data-lang="he"] { background-image: url('https://flagcdn.com/w40/il.png'); }
+    .lang-btn[data-lang="ru"] {
+      background-image: url('https://flagcdn.com/w40/ru.png');
+    }
+
+    .lang-btn[data-lang="ua"] {
+      background-image: url('https://flagcdn.com/w40/ua.png');
+    }
+
+    .lang-btn[data-lang="en"] {
+      background-image: url('https://flagcdn.com/w40/gb.png');
+    }
+
+    .lang-btn[data-lang="he"] {
+      background-image: url('https://flagcdn.com/w40/il.png');
+    }
 
     .lang-btn.active {
       outline: 2px solid orange;
       background-color: white !important;
     }
-
-    
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17102315198">
   </script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'AW-17102315198');
@@ -215,59 +231,63 @@
     });
   </script>
   <script>
-  // Автоматическое переключение языка по URL параметру
-  function getLangFromUrl() {
-    const params = new URLSearchParams(window.location.search);
-    const lang = params.get('lang');
-    const allowed = ['ru', 'ua', 'en', 'he'];
-    return allowed.includes(lang) ? lang : null;
-  }
+    // Автоматическое переключение языка по URL параметру
+    function getLangFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const lang = params.get('lang');
+      const allowed = ['ru', 'ua', 'en', 'he'];
+      return allowed.includes(lang) ? lang : null;
+    }
 
-  window.addEventListener('DOMContentLoaded', () => {
-    const lang = getLangFromUrl();
-    if (lang) {
-      const targetBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
-      if (targetBtn) targetBtn.click(); // имитируем клик по кнопке
-    }
-  });
-</script>
-<script>
-  window.addEventListener("load", () => {
-    const preloader = document.getElementById("preloader");
-    if (preloader) {
-      preloader.style.opacity = "0";
-      setTimeout(() => preloader.remove(), 500);
-    }
-  });
-</script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const lang = getLangFromUrl();
+      if (lang) {
+        const targetBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
+        if (targetBtn) targetBtn.click(); // имитируем клик по кнопке
+      }
+    });
+  </script>
+  <script>
+    window.addEventListener("load", () => {
+      const preloader = document.getElementById("preloader");
+      if (preloader) {
+        preloader.style.opacity = "0";
+        setTimeout(() => preloader.remove(), 500);
+      }
+    });
+  </script>
 
 </head>
+
 <body>
   <div id="preloader">
     <img src="img/truck-cat-loader.gif" alt="Загрузка..." />
   </div>
   <div id="privacy-popup" class="privacy-popup">
-  <div class="privacy-content">
-    <p>
-      Мы используем файлы cookie и обрабатываем персональные данные, чтобы улучшить работу сайта. Подробнее читайте в
-      <a href="./privacy-policy.html" target="_blank">Политике конфиденциальности</a>.
-    </p>
-    <button onclick="acceptPrivacy()">Принять</button>
-  </div>
+    <div class="privacy-content">
+      <p>
+        Мы используем файлы cookie и обрабатываем персональные данные, чтобы улучшить работу сайта. Подробнее читайте в
+        <a href="./privacy-policy.html" target="_blank">Политике конфиденциальности</a>.
+      </p>
+      <button onclick="acceptPrivacy()">Принять</button>
+    </div>
   </div>
 
 
   <div class="container">
-    <img src="img/background_he.png" alt="bg-img" style="opacity: 0; position: absolute; width: 1px; top:0; z-index: 0;">
-    <img src="img/background_ua.png" alt="bg-img" style="opacity: 0; position: absolute; width: 1px; top:0; z-index: 0;">
-    <img src="img/background_en.png" alt="bg-img" style="opacity: 0; position: absolute; width: 1px; top:0; z-index: 0;">
+    <img src="img/background_he.png" alt="bg-img"
+      style="opacity: 0; position: absolute; width: 1px; top:0; z-index: 0;">
+    <img src="img/background_ua.png" alt="bg-img"
+      style="opacity: 0; position: absolute; width: 1px; top:0; z-index: 0;">
+    <img src="img/background_en.png" alt="bg-img"
+      style="opacity: 0; position: absolute; width: 1px; top:0; z-index: 0;">
     <img src="img/background.png" id="mainBackgroundImg" alt="Переезд без стресса" class="bg-img" style="z-index: 4;" />
-    
+
     <div class="call-container">
       <button id="call-button" onclick="makeCall()">Позвонить</button>
       <span id="phone-number" style="color: white; text-decoration: none;">+9725486759</span>
     </div>
-    
+
 
     <div class="hotspots">
       <div id="btn1" class="hotspot" onclick="togglePopup('popup1')"></div>
@@ -330,128 +350,128 @@
   </header>
 
   <script>
-  const translations = {
-    ua: {
-      title: "Залишити заявку",
-      name: "Ім'я",
-      phone: "Телефон",
-      message: "Повідомлення",
-      button: "Відправити",
-      bg: "img/background_form_jungle.png",
-      bg_main: "img/background_ua.png",
-      pageTitle: "Переїзд без стресу",
-      call: "Подзвонити"
-    },
-    ru: {
-      title: "Оставить заявку",
-      name: "Имя",
-      phone: "Телефон",
-      message: "Сообщение",
-      button: "Отправить",
-      bg: "img/background_form_jungle.png",
-      bg_main: "img/background.png",
-      pageTitle: "Переезд без стресса",
-      call: "Позвонить"
-    },
-    en: {
-      title: "Get a Quote",
-      name: "Name",
-      phone: "Phone",
-      message: "Message",
-      button: "Send",
-      bg: "img/background_form_jungle.png",
-      bg_main: "img/background_en.png",
-      pageTitle: "Stress-Free Moving",
-      call: "Call"
-    },
-    he: {
-      title: "קבל הצעת מחיר",
-      name: "שם",
-      phone: "נייד",
-      message: "הודעה",
-      button: "שלח",
-      bg: "img/background_form_jungle.png",
-      bg_main: "img/background_he.png",
-      pageTitle: "מעבר דירה בלי לחץ",
-      call: "התקשר"
+    const translations = {
+      ua: {
+        title: "Залишити заявку",
+        name: "Ім'я",
+        phone: "Телефон",
+        message: "Повідомлення",
+        button: "Відправити",
+        bg: "img/background_form_jungle.png",
+        bg_main: "img/background_ua.png",
+        pageTitle: "Переїзд без стресу",
+        call: "Подзвонити"
+      },
+      ru: {
+        title: "Оставить заявку",
+        name: "Имя",
+        phone: "Телефон",
+        message: "Сообщение",
+        button: "Отправить",
+        bg: "img/background_form_jungle.png",
+        bg_main: "img/background.png",
+        pageTitle: "Переезд без стресса",
+        call: "Позвонить"
+      },
+      en: {
+        title: "Get a Quote",
+        name: "Name",
+        phone: "Phone",
+        message: "Message",
+        button: "Send",
+        bg: "img/background_form_jungle.png",
+        bg_main: "img/background_en.png",
+        pageTitle: "Stress-Free Moving",
+        call: "Call"
+      },
+      he: {
+        title: "קבל הצעת מחיר",
+        name: "שם",
+        phone: "נייד",
+        message: "הודעה",
+        button: "שלח",
+        bg: "img/background_form_jungle.png",
+        bg_main: "img/background_he.png",
+        pageTitle: "מעבר דירה בלי לחץ",
+        call: "התקשר"
+      }
+    };
+
+    const container = document.getElementById('form-container');
+    const langButtons = document.querySelectorAll('.lang-btn');
+    const mainBackground = document.getElementById('mainBackgroundImg');
+    const callBtn = document.getElementById('call-button');
+
+    function applyLanguage(lang) {
+      const t = translations[lang] || translations['ru'];
+
+      document.getElementById('form-title').textContent = t.title;
+      document.getElementById('name').placeholder = t.name;
+      document.getElementById('phone').placeholder = t.phone;
+      document.getElementById('message').placeholder = t.message;
+      document.getElementById('submit-btn').textContent = t.button;
+      document.title = t.pageTitle;
+      container.style.backgroundImage = `url('${t.bg}')`;
+      mainBackground.src = `${t.bg_main}`;
+      callBtn.textContent = t.call;
     }
-  };
 
-  const container = document.getElementById('form-container');
-  const langButtons = document.querySelectorAll('.lang-btn');
-  const mainBackground = document.getElementById('mainBackgroundImg');
-  const callBtn = document.getElementById('call-button');
-
-  function applyLanguage(lang) {
-    const t = translations[lang] || translations['ru'];
-
-    document.getElementById('form-title').textContent = t.title;
-    document.getElementById('name').placeholder = t.name;
-    document.getElementById('phone').placeholder = t.phone;
-    document.getElementById('message').placeholder = t.message;
-    document.getElementById('submit-btn').textContent = t.button;
-    document.title = t.pageTitle;
-    container.style.backgroundImage = `url('${t.bg}')`;
-    mainBackground.src = `${t.bg_main}`;
-    callBtn.textContent = t.call;
-  }
-
-  // Установка языка из URL или по умолчанию
-  window.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const lang = urlParams.get('lang') || 'ru';
-    applyLanguage(lang);
-
-    const selectedBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
-    if (selectedBtn) {
-      langButtons.forEach(b => b.classList.remove('active'));
-      selectedBtn.classList.add('active');
-    }
-  });
-
-  // Обработчик переключения языка
-  langButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const lang = btn.dataset.lang;
-
-      // Обновляем URL
-      const newUrl = `${window.location.pathname}?lang=${lang}`;
-      window.history.pushState({ path: newUrl }, '', newUrl);
-
-      // Применяем перевод
+    // Установка языка из URL или по умолчанию
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const lang = urlParams.get('lang') || 'ru';
       applyLanguage(lang);
 
-      langButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      const selectedBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
+      if (selectedBtn) {
+        langButtons.forEach(b => b.classList.remove('active'));
+        selectedBtn.classList.add('active');
+      }
     });
-  });
 
-  // Функция для звонка
-  function makeCall() {
-    window.location.href = "tel:+9725486759";
-  }
+    // Обработчик переключения языка
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
 
-  // Попапы
-  let activePopup = null;
+        // Обновляем URL
+        const newUrl = `${window.location.pathname}?lang=${lang}`;
+        window.history.pushState({ path: newUrl }, '', newUrl);
 
-  function togglePopup(id) {
-    if (activePopup === id) {
-      closePopup(id);
-    } else {
-      document.querySelectorAll('.popup').forEach(p => p.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
-      activePopup = id;
+        // Применяем перевод
+        applyLanguage(lang);
+
+        langButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    // Функция для звонка
+    function makeCall() {
+      window.location.href = "tel:+9725486759";
     }
-  }
 
-  function closePopup(id) {
-    document.getElementById(id).style.display = 'none';
-    activePopup = null;
-  }
+    // Попапы
+    let activePopup = null;
+
+    function togglePopup(id) {
+      if (activePopup === id) {
+        closePopup(id);
+      } else {
+        document.querySelectorAll('.popup').forEach(p => p.style.display = 'none');
+        document.getElementById(id).style.display = 'block';
+        activePopup = id;
+      }
+    }
+
+    function closePopup(id) {
+      document.getElementById(id).style.display = 'none';
+      activePopup = null;
+    }
   </script>
 
   <script>
-    document.querySelector('form').addEventListener('submit', function(e) {
+    document.querySelector('form').addEventListener('submit', function (e) {
       e.preventDefault();
 
       const name = document.getElementById('name').value.trim();
@@ -485,18 +505,97 @@
           parse_mode: 'HTML'
         })
       })
-      .then(res => res.json())
-      .then(data => {
-        if (data.ok) {
-          alert("✅ Заявка успешно отправлена!");
-          document.querySelector('form').reset();
-        } else {
-          alert("❌ Ошибка при отправке. Попробуйте позже.");
-        }
-      })
-      .catch(() => alert("⚠️ Не удалось отправить заявку."));
+        .then(res => res.json())
+        .then(data => {
+          if (data.ok) {
+            alert("✅ Заявка успешно отправлена!");
+            document.querySelector('form').reset();
+          } else {
+            alert("❌ Ошибка при отправке. Попробуйте позже.");
+          }
+        })
+        .catch(() => alert("⚠️ Не удалось отправить заявку."));
     });
   </script>
+  <div id="chatbox">
+    <div id="messages"></div>
+    <div id="input">
+      <input type="text" id="userInput" placeholder="Напишите сообщение..." />
+      <button onclick="sendMessage()">➤</button>
+    </div>
+  </div>
+  <script>
+  let step = 0;
+  let data = {};
+  const messages = document.getElementById("messages");
+
+  const bot = (text) => {
+    const el = document.createElement("div");
+    el.className = "msg bot";
+    el.innerText = text;
+    messages.appendChild(el);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  const user = (text) => {
+    const el = document.createElement("div");
+    el.className = "msg user";
+    el.innerText = text;
+    messages.appendChild(el);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  const questions = [
+    "Привет! Я помогу с переездом. Как вас зовут?",
+    "Из какого города вы переезжаете?",
+    "В какой город планируете переезд?",
+    "На какую дату планируете?",
+    "Есть ли лифт в месте загрузки (да/нет)?",
+    "На каком этаже находятся вещи?",
+    "Какой объем или сколько комнат примерно?",
+    "Есть ли что-то, что стоит знать заранее? (мебель, упаковка и т.д.)"
+  ];
+
+  const nextStep = () => {
+    if (step < questions.length) {
+      bot(questions[step]);
+    } else {
+      bot("Спасибо! Информация передана нашему оператору. Мы свяжемся с вами для уточнения цены.");
+      fetch("https://telegram-server-hask.onrender.com/send", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data)
+      });
+    }
+  }
+
+  const sendMessage = () => {
+    const input = document.getElementById("userInput");
+    const text = input.value.trim();
+    if (!text) return;
+
+    user(text);
+    input.value = "";
+
+    switch (step) {
+      case 0: data.name = text; break;
+      case 1: data.from = text; break;
+      case 2: data.to = text; break;
+      case 3: data.date = text; break;
+      case 4: data.elevator = text; break;
+      case 5: data.floor = text; break;
+      case 6: data.volume = text; break;
+      case 7: data.comment = text; break;
+    }
+
+    step++;
+    setTimeout(nextStep, 400);
+  };
+
+  window.onload = nextStep;
+</script>
+
 
 </body>
+
 </html>
