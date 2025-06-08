@@ -7,7 +7,6 @@
   <title>Переезд без стресса</title>
   <link rel="icon" href="img/favicon.png" type="image/png">
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/chat_bot.css" />
   <style>
     * {
       margin: 0;
@@ -208,15 +207,27 @@
       background-color: white !important;
     }
   </style>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17102315198">
-  </script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'AW-17102315198');
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof (url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17102315198/mXtVCXzkm9YzaEL69tgS_',
+        'event_callback': callback
+      });
+      return false;
+    }
   </script>
   <script>
     function acceptPrivacy() {
@@ -284,41 +295,11 @@
     <img src="img/background.png" id="mainBackgroundImg" alt="Переезд без стресса" class="bg-img" style="z-index: 4;" />
 
     <div class="call-container">
-      <button id="call-button" onclick="makeCall()">Позвонить</button>
-      <span id="phone-number" style="color: white; text-decoration: none;">+9725486759</span>
-    </div>
-
-
-    <div class="hotspots">
-      <div id="btn1" class="hotspot" onclick="togglePopup('popup1')"></div>
-      <div id="btn2" class="hotspot" onclick="togglePopup('popup2')"></div>
-      <div id="btn3" class="hotspot" onclick="togglePopup('popup3')"></div>
-      <div id="btn4" class="hotspot" onclick="togglePopup('popup4')"></div>
-    </div>
-
-    <!-- Меню -->
-    <div class="popup" id="popup1">
-      <span class="close" onclick="closePopup('popup1')">✖</span>
-      <a href="https://wa.me/972548675869" target="_blank" class="whatsapp">WhatsApp</a>
-      <a href="tel:+972548675869" class="call">Позвонить</a>
-    </div>
-
-    <div class="popup" id="popup2">
-      <span class="close" onclick="closePopup('popup2')">✖</span>
-      <a href="https://wa.me/972548675869" target="_blank" class="whatsapp">WhatsApp</a>
-      <a href="tel:+972548675869" class="call">Позвонить</a>
-    </div>
-
-    <div class="popup" id="popup3">
-      <span class="close" onclick="closePopup('popup3')">✖</span>
-      <a href="https://wa.me/972548675869" target="_blank" class="whatsapp">WhatsApp</a>
-      <a href="tel:+972548675869" class="call">Позвонить</a>
-    </div>
-
-    <div class="popup" id="popup4">
-      <span class="close" onclick="closePopup('popup4')">✖</span>
-      <a href="https://wa.me/972548675869" target="_blank" class="whatsapp">WhatsApp</a>
-      <a href="tel:+972548675869" class="call">Позвонить</a>
+      <a href="tel:+972548675869" onclick="return gtag_report_conversion('tel:+972548675869');">
+        <button id="call-button">Позвонить</button>
+        <br>
+        <span id="phone-number" style="color: white; text-decoration: none;">+972548675869</span>
+      </a>
     </div>
   </div>
 
@@ -448,7 +429,7 @@
 
     // Функция для звонка
     function makeCall() {
-      window.location.href = "tel:+9725486759";
+      window.location.href = "tel:+972548675869";
     }
 
     // Попапы
@@ -517,6 +498,6 @@
         .catch(() => alert("⚠️ Не удалось отправить заявку."));
     });
   </script>
- </body>
+</body>
 
 </html>
