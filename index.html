@@ -295,12 +295,11 @@
     <img src="img/background.jpg" id="mainBackgroundImg" alt="Переезд без стресса" class="bg-img" style="z-index: 4;" />
 
     <div class="call-container">
-      <button href="tel:+972548675869"
+      <button href="tel:+972548675869" id="call-button"
         style="display: inline-block; padding: 12px 20px; background: orange; color: white; border-radius: 10px; font-weight: bold; text-align: center; text-decoration: none;"
-        onclick="makeCall()"
-        >Позвонить
+        onclick="makeCall()">Позвонить
       </button>
-        <span id="phone-number" style="color: white; text-decoration: none;">+972548675869</span>
+      <span id="phone-number" style="color: white; text-decoration: none;">+972548675869</span>
 
 
     </div>
@@ -412,9 +411,9 @@
 
 
     window.addEventListener('load', () => {
-    const lang = getLangFromUrl() || 'ru';
-    applyLanguage(lang);
-  });
+      const lang = getLangFromUrl() || 'ru';
+      applyLanguage(lang);
+    });
 
 
     // Установка языка из URL или по умолчанию
