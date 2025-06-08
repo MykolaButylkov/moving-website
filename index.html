@@ -300,11 +300,11 @@
         <br>
         <span id="phone-number" style="color: white; text-decoration: none;">+972548675869</span>
       </a> -->
-      <a href="tel:+972548675869"
-        onclick="return gtag_report_conversion('tel:+972548675869');"
-        style="display: inline-block; padding: 12px 20px; background: orange; color: white; border-radius: 10px; font-weight: bold; text-align: center; text-decoration: none;">
-        Позвонить
-      </a>
+      <button href="tel:+972548675869"
+        style="display: inline-block; padding: 12px 20px; background: orange; color: white; border-radius: 10px; font-weight: bold; text-align: center; text-decoration: none;"
+        onclick="makeCall()"
+        >+972548675869
+      </button>
 
     </div>
   </div>
@@ -403,6 +403,12 @@
       callBtn.textContent = t.call;
     }
 
+    window.addEventListener('load', () => {
+    const lang = getLangFromUrl() || 'ru';
+    applyLanguage(lang);
+  });
+
+
     // Установка языка из URL или по умолчанию
     window.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
@@ -436,6 +442,8 @@
     // Функция для звонка
     function makeCall() {
       window.location.href = "tel:+972548675869";
+
+      gtag_report_conversion('tel:+972548675869')
     }
 
     // Попапы
