@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   font-family: Arial, sans-serif;
   background-color: #36A9E1;
@@ -18,7 +19,8 @@ img {
 a {
   text-decoration: none !important;
   color: inherit !important;
-  -webkit-tap-highlight-color: transparent; /* убирает подсветку при клике на iOS */
+  -webkit-tap-highlight-color: transparent;
+  /* убирает подсветку при клике на iOS */
 }
 
 a:visited,
@@ -48,6 +50,8 @@ a:focus {
 .container {
   display: grid;
   place-items: center;
+  background-size: cover;
+  background-position: center;
 }
 
 .privacy-popup {
@@ -61,7 +65,7 @@ a:focus {
   border: 1px solid #ddd;
   padding: 15px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   z-index: 9999;
   font-size: 14px;
   display: none;
@@ -92,9 +96,9 @@ a:focus {
   margin-left: 10px;
   justify-content: center;
   position: absolute;
-    z-index: 9;
-    left: 0;
-    top: 0;
+  z-index: 9;
+  left: 0;
+  top: 0;
 }
 
 #call-button {
@@ -139,16 +143,34 @@ a:focus {
   position: absolute;
   width: 67px;
   height: 70px;
-  background-color: rgba(102, 102, 102, 0); /* Временно для отладки */
+  background-color: rgba(102, 102, 102, 0);
+  /* Временно для отладки */
   pointer-events: auto;
   border-radius: 10%;
 }
 
 /* Пример позиционирования кнопок, настрой под свой фон */
-#btn1 { left: 6%; width: 79px; height: 125px;}
-#btn2 { left: 30%; height: 100px;}
-#btn3 { left: 53%; height: 100px;}
-#btn4 { left: 74%; width: 79px; height: 125px;}
+#btn1 {
+  left: 6%;
+  width: 79px;
+  height: 125px;
+}
+
+#btn2 {
+  left: 30%;
+  height: 100px;
+}
+
+#btn3 {
+  left: 53%;
+  height: 100px;
+}
+
+#btn4 {
+  left: 74%;
+  width: 79px;
+  height: 125px;
+}
 
 .popup {
   position: absolute;
@@ -190,10 +212,25 @@ a:focus {
 }
 
 /* Расположение всплывающих окон — подгони как удобно */
-#popup1 { top: 60%; left: 10%; }
-#popup2 { top: 60%; left: 30%; }
-#popup3 { top: 60%; left: 50%; }
-#popup4 { top: 60%; left: 50%; }
+#popup1 {
+  top: 60%;
+  left: 10%;
+}
+
+#popup2 {
+  top: 60%;
+  left: 30%;
+}
+
+#popup3 {
+  top: 60%;
+  left: 50%;
+}
+
+#popup4 {
+  top: 60%;
+  left: 50%;
+}
 
 .lang-switcher {
   display: flex;
@@ -202,6 +239,7 @@ a:focus {
   top: 15px;
   right: 15px;
 }
+
 .lang-btn {
   width: 40px;
   height: 28px;
@@ -212,6 +250,7 @@ a:focus {
   cursor: pointer;
   outline: none;
 }
+
 /* Фоны для неактивных кнопок */
 .lang-btn[data-lang="ru"] {
   background-image: url('https://flagcdn.com/w40/ru.png');
@@ -228,10 +267,11 @@ a:focus {
 .lang-btn[data-lang="he"] {
   background-image: url('https://flagcdn.com/w40/il.png');
 }
+
 /* Активная кнопка */
 .lang-btn.active {
   outline: 2px solid orange;
-  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-image {
@@ -247,4 +287,84 @@ a:focus {
   display: block;
 }
 
+.form-container {
+      display: grid;
+      max-width: 430px;
+      margin: auto;
+      place-items: center;
+      height: 69vh;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 0.3s ease-in-out;
+    }
 
+    .form-wrapper {
+      background: rgba(255, 255, 255, 0.92);
+      /* почти белый, но с прозрачностью */
+      backdrop-filter: blur(6px);
+      /* лёгкое размытие фона */
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 420px;
+      width: 90%;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      border: 2px solid #e6d4aa;
+      /* золотистая рамка, как на светлом холсте */
+      font-family: 'Arial', sans-serif;
+      position: relative;
+      z-index: 5;
+    }
+
+    .form-wrapper h2 {
+      font-size: 1.8em;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #3a2f1d;
+      /* цвет древесной коры */
+      font-weight: bold;
+    }
+
+    .form-wrapper input,
+    .form-wrapper textarea {
+      padding: 12px;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+      font-size: 1em;
+      outline: none;
+      transition: border-color 0.3s ease;
+      background: #fffefc;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-wrapper input:focus,
+    .form-wrapper textarea:focus {
+      border-color: orange;
+    }
+
+    .form-wrapper textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-wrapper button {
+      padding: 12px;
+      font-size: 1em;
+      background-color: orange;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-wrapper button:hover {
+      background-color: #e69500;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
