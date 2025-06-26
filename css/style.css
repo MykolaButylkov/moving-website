@@ -58,7 +58,7 @@ a:focus {
 .container_buttons-area {
   position: absolute;
   bottom: 65px;;
-  width: 430px;
+  width: 100%;
   height: 130px;
   background-color: transparent;
   /* border: 2px dashed #ccc; */
