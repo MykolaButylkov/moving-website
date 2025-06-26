@@ -22,7 +22,7 @@
     }
 
     function clampPosition(x, y) {
-      const panelWidth = panel.offsetWidth;
+      const panelWidth = panel.offsetWidth + 17;
       const panelHeight = panel.offsetHeight;
       const areaRect = area.getBoundingClientRect();
 
