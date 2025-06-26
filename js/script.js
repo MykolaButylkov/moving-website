@@ -8,7 +8,7 @@
       ru: '📞 Позвонить',
       en: '📞 Make Call',
       he: '📞 להתקשר',
-      ua: '📞 Зателефонувати'
+      ua: '📞 Подзвонити'
     };
 
     function getCurrentLang() {
@@ -21,31 +21,51 @@
       callBtn.textContent = labels[lang] || labels['ru'];
     }
 
-    // 1. Установка при загрузке
+    function clampPosition(x, y) {
+      const panelWidth = panel.offsetWidth;
+      const panelHeight = panel.offsetHeight;
+      const areaRect = area.getBoundingClientRect();
+
+      // Максимально допустимые координаты, чтобы панель не вылезала
+      const maxX = area.clientWidth - panelWidth;
+      const maxY = area.clientHeight - panelHeight;
+
+      return {
+        x: Math.max(0, Math.min(x, maxX)),
+        y: Math.max(0, Math.min(y, maxY))
+      };
+    }
+
     updateCallButtonText();
 
-    // 2. Клик по области — показать панель и обновить язык
     area.addEventListener('click', function (e) {
       if (panel.contains(e.target)) return;
 
-      updateCallButtonText(); // обновляем язык каждый раз при открытии
+      updateCallButtonText();
 
-      const rect = area.getBoundingClientRect();
-      const clickX = e.clientX - rect.left;
-      const clickY = e.clientY - rect.top;
+      // Вычисляем координаты клика
+      const areaRect = area.getBoundingClientRect();
+      const clickX = e.clientX - areaRect.left;
+      const clickY = e.clientY - areaRect.top;
 
-      panel.style.left = `${clickX}px`;
-      panel.style.top = `${clickY}px`;
+      // Временно показываем панель, чтобы получить её размеры
+      panel.style.visibility = 'hidden';
       panel.classList.remove('hidden');
+
+      // После рендеринга определим корректные координаты
+      requestAnimationFrame(() => {
+        const { x, y } = clampPosition(clickX, clickY);
+        panel.style.left = `${x}px`;
+        panel.style.top = `${y}px`;
+        panel.style.visibility = 'visible';
+      });
     });
 
-    // 3. Закрытие по ✖
     closeIcon.addEventListener('click', function (e) {
       e.stopPropagation();
       panel.classList.add('hidden');
     });
 
-    // 4. Закрытие по клику вне области
     document.addEventListener('click', function (e) {
       if (!area.contains(e.target)) {
         panel.classList.add('hidden');
