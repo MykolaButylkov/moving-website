@@ -15,13 +15,14 @@ html {
 @media (max-width: 425px) {
   body {
     font-size: smaller;
-    font-weight: bold;
   }
 }
 
 .page {
   margin: auto;
-  max-width: 680px;
+  max-width: 430px;
+  /* padding-left: 20px;
+  padding-right: 20px; */
 }
 
 img {
@@ -70,21 +71,22 @@ a:focus {
 
 .container_buttons-area {
   position: absolute;
-  bottom: 65px;;
+  bottom: 65px;
+  ;
   width: 100%;
   height: 130px;
   background-color: transparent;
   /* border: 2px dashed #ccc; */
   cursor: pointer;
   z-index: 999;
-  
+
 }
 
 .button-panel {
   position: absolute;
   z-index: 1000;
   animation: fadeIn 0.3s ease;
- 
+
 
 }
 
@@ -135,11 +137,13 @@ a:focus {
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
   }
 }
+
 .privacy-popup {
   position: fixed;
   bottom: 20px;
@@ -211,7 +215,7 @@ a:focus {
   max-width: 430px;
   height: auto;
   display: block;
-  /* margin-top: 60px; пока акция это в коментах */ 
+  /* margin-top: 60px; пока акция это в коментах */
 }
 
 .hotspots {
@@ -389,83 +393,83 @@ a:focus {
 }
 
 .form-container {
-      display: grid;
-      max-width: 430px;
-      margin: auto;
-      place-items: center;
-      height: 69vh;
-      background-size: cover;
-      background-position: center;
-      transition: background-image 0.3s ease-in-out;
-    }
+  display: grid;
+  max-width: 430px;
+  margin: auto;
+  place-items: center;
+  height: 69vh;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.3s ease-in-out;
+}
 
-    .form-wrapper {
-      background: rgba(255, 255, 255, 0.92);
-      /* почти белый, но с прозрачностью */
-      backdrop-filter: blur(6px);
-      /* лёгкое размытие фона */
-      border-radius: 20px;
-      padding: 30px;
-      max-width: 420px;
-      width: 90%;
-      margin: 0 auto;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-      border: 2px solid #e6d4aa;
-      /* золотистая рамка, как на светлом холсте */
-      font-family: 'Arial', sans-serif;
-      position: relative;
-      z-index: 5;
-    }
+.form-wrapper {
+  background: rgba(255, 255, 255, 0.92);
+  /* почти белый, но с прозрачностью */
+  backdrop-filter: blur(6px);
+  /* лёгкое размытие фона */
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 420px;
+  width: 90%;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  border: 2px solid #e6d4aa;
+  /* золотистая рамка, как на светлом холсте */
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  z-index: 5;
+}
 
-    .form-wrapper h2 {
-      font-size: 1.8em;
-      text-align: center;
-      margin-bottom: 20px;
-      color: #3a2f1d;
-      /* цвет древесной коры */
-      font-weight: bold;
-    }
+.form-wrapper h2 {
+  font-size: 1.8em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #3a2f1d;
+  /* цвет древесной коры */
+  font-weight: bold;
+}
 
-    .form-wrapper input,
-    .form-wrapper textarea {
-      padding: 12px;
-      border-radius: 10px;
-      border: 2px solid #ccc;
-      font-size: 1em;
-      outline: none;
-      transition: border-color 0.3s ease;
-      background: #fffefc;
-      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-    }
+.form-wrapper input,
+.form-wrapper textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  font-size: 1em;
+  outline: none;
+  transition: border-color 0.3s ease;
+  background: #fffefc;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
 
-    .form-wrapper input:focus,
-    .form-wrapper textarea:focus {
-      border-color: orange;
-    }
+.form-wrapper input:focus,
+.form-wrapper textarea:focus {
+  border-color: orange;
+}
 
-    .form-wrapper textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
+.form-wrapper textarea {
+  resize: vertical;
+  min-height: 100px;
+}
 
-    .form-wrapper button {
-      padding: 12px;
-      font-size: 1em;
-      background-color: orange;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
+.form-wrapper button {
+  padding: 12px;
+  font-size: 1em;
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
 
-    .form-wrapper button:hover {
-      background-color: #e69500;
-    }
+.form-wrapper button:hover {
+  background-color: #e69500;
+}
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
