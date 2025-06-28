@@ -12,6 +12,11 @@ html {
   background-color: #B7D9DD;
 }
 
+.page {
+  margin: auto;
+  max-width: 680px;
+}
+
 img {
   max-width: 430px;
   margin: auto;
