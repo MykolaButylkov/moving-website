@@ -10,6 +10,13 @@ html {
   font-family: Arial, sans-serif;
   /* background-color: #36A9E1; пока акция */
   background-color: #B7D9DD;
+
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  /* Для Safari */
 }
 
 @media (max-width: 425px) {
@@ -378,6 +385,33 @@ a:focus {
   object-fit: cover;
   display: block;
 }
+
+.cartoon-button {
+  position: absolute;
+  bottom: 20px;
+  /* можно изменить отступ от низа */
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  padding: 12px 4px;
+  background-color: #ffb347;
+  color: #000;
+  font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', cursive, sans-serif;
+  font-size: 20px;
+  border: 3px solid #ff9800;
+  border-radius: 20px;
+  box-shadow: 4px 4px 0 #ffa726;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.cartoon-button:hover {
+  background-color: #ffe082;
+  box-shadow: 2px 2px 0 #ffa726;
+  transform: translateY(-2px);
+  transform: translateX(-55%);
+}
+
 
 .hero-image {
   width: 100%;
