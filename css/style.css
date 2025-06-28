@@ -12,6 +12,12 @@ html {
   background-color: #B7D9DD;
 }
 
+@media (max-width: 425px) {
+  body {
+    font-size: smaller;
+  }
+}
+
 .page {
   margin: auto;
   max-width: 680px;
