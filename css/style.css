@@ -15,6 +15,7 @@ html {
 @media (max-width: 425px) {
   body {
     font-size: smaller;
+    font-weight: bold;
   }
 }
 
@@ -200,7 +201,7 @@ a:focus {
 #phone-number {
   font-size: 1em;
   font-weight: bold;
-  color: white;
+  /* color: black; */
 }
 
 
