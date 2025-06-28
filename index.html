@@ -7,6 +7,8 @@
   <title>Переезд без стресса</title>
   <link rel="icon" href="img/favicon.jpg" type="image/jpg">
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/owner.css" />
+  <link rel="stylesheet" href="css/comment.css" />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- Google tag (gtag.js) -->
@@ -61,13 +63,14 @@
     <div id="privacy-popup" class="privacy-popup">
       <div class="privacy-content">
         <p>
-          Мы используем файлы cookie и обрабатываем персональные данные, чтобы улучшить работу сайта. Подробнее читайте в
+          Мы используем файлы cookie и обрабатываем персональные данные, чтобы улучшить работу сайта. Подробнее читайте
+          в
           <a href="./privacy-policy.html" target="_blank">Политике конфиденциальности</a>.
         </p>
         <button onclick="acceptPrivacy()">Принять</button>
       </div>
     </div>
-  
+
     <div class="call-container">
       <button href="tel:+972548675869" id="call-button"
         style="display: inline-block; padding: 12px 20px; background: orange; color: white; border-radius: 10px; font-weight: bold; text-align: center; text-decoration: none;"
@@ -75,12 +78,12 @@
       </button>
       <span id="phone-number">+972548675869</span>
     </div>
-  
+
     <header class="hero-image-sale" style="padding-top: 60px;">
       <img src="img/999SHEKELEY.png" alt="Переезд от 999 шекелей" />
       <img src="img/999SHEKELEY-he.png" alt="מבצע מעבר דירה החל מ-999 שקלים">
     </header>
-  
+
     <div class="container">
       <img src="img/background_he.jpg" alt="bg-img"
         style="opacity: 0; position: absolute; width: 1px; top:0; z-index: 0;">
@@ -88,7 +91,8 @@
         style="opacity: 0; position: absolute; width: 1px; top:0; z-index: 0;">
       <img src="img/background_en.jpg" alt="bg-img"
         style="opacity: 0; position: absolute; width: 1px; top:0; z-index: 0;">
-      <img src="img/background.jpg" id="mainBackgroundImg" alt="Переезд без стресса" class="bg-img" style="z-index: 4;" />
+      <img src="img/background.jpg" id="mainBackgroundImg" alt="Переезд без стресса" class="bg-img"
+        style="z-index: 4;" />
       <div class="container_buttons-area">
         <div class="button-panel hidden">
           <div class="close-icon">✖</div>
@@ -98,15 +102,15 @@
             WhatsApp</button>
         </div>
       </div>
-  
-  
-  
+
+
+
     </div>
-  
+
     <header class="hero-image">
       <img src="img/moving_with_the_magic_of_portals.jpg" alt="Переезд с магией порталов" />
     </header>
-  
+
     <div class="form-container" id="form-container">
       <div class="lang-switcher">
         <button class="lang-btn active" data-lang="ru" title="Русский"></button>
@@ -114,7 +118,7 @@
         <button class="lang-btn" data-lang="en" title="English"></button>
         <button class="lang-btn" data-lang="he" title="עברית"></button>
       </div>
-  
+
       <div class="form-wrapper">
         <h2 id="form-title">Оставить заявку</h2>
         <form>
@@ -125,11 +129,57 @@
         </form>
       </div>
     </div>
-  
+
     <header class="hero-image">
       <img src="img/moving_with_the_magic_of_portals_2.jpg" alt="Переезд с магией порталов" />
     </header>
+    <div class="review-form">
+      <h2>Оставить отзыв</h2>
+      <input type="text" id="name" placeholder="Имя" required />
+      <textarea id="message" placeholder="Ваш отзыв..." required></textarea>
+      <!-- <label for="photo">Фото с переезда (по желанию):</label>
+    <input type="file" id="photo" accept="image/*" /> -->
 
+      <div>
+        Рейтинг:
+        <select id="rating">
+          <option value="5">⭐⭐⭐⭐⭐</option>
+          <option value="4">⭐⭐⭐⭐</option>
+          <option value="3">⭐⭐⭐</option>
+          <option value="2">⭐⭐</option>
+          <option value="1">⭐</option>
+        </select>
+      </div>
+      <button onclick="submitReview()">Отправить</button>
+    </div>
+
+    <div class="review-card owner-review" id="owner-review">
+      <div class="review-header">
+        <img src="img/mykola.jpg" alt="Микола Бутылков" class="review-avatar" />
+        <div>
+          <div class="review-name">Микола Бутылков <span class="owner-badge">владелец</span></div>
+          <div class="review-rating">⭐⭐⭐⭐⭐</div>
+        </div>
+      </div>
+      <div class="review-text">
+        <p>
+          Привет!👋 <br>
+          Меня зовут Микола Бутылков — я сам лично стою за этим сервисом переездов🚚.<br>
+          Если вы читаете это сообщение — значит, вы ищете не просто перевозку, а нормальных людей, с которыми можно
+          спокойно договориться, без нервов и сюрпризов.
+          Я с вами на связи от первого 📞звонка и до последней коробки📦, всегда честно объясняю, как всё будет, и слежу,
+          чтобы всё прошло ровно.
+          Хотите — оставьте отзыв, хотите — просто напишите 'привет'😊.<br>
+          <strong> Всё сделаю как для себя 💪</strong>
+        </p>
+      </div>
+    </div>
+
+
+    <div id="reviews-section">Reviews...</div>
+    <!-- <p style="text-align: center; margin-top: 40px;">
+      <a href="admin.html" style="color: gray; font-size: 14px;">Вход для администратора</a>
+    </p> -->
   </div>
   <script defer src="js/sale-img.js"></script>
   <script>
@@ -319,8 +369,19 @@
         .catch(() => alert("⚠️ Не удалось отправить заявку."));
     });
   </script>
+
+<script src="js/script.js"></script>
+<script src="js/owner-review.js"></script>
+
+<!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
   
-  <script src="js/script.js"></script>
+  <!-- Скрипты проекта -->
+  <script src="js/firebase.js"></script>
+  <script src="js/review.js"></script>
+  
 </body>
 
 </html>
