@@ -164,3 +164,33 @@
 .review-photo:hover {
     transform: scale(1.03);
 }
+
+.header-costomer-review {
+  /* font-family: 'Comic Neue', 'Arial Rounded MT Bold', sans-serif; */
+  font-size: 2.2rem;
+  color: #333;
+  background: #FFFCE6;
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  text-shadow: 1px 1px 0 #fff;
+  margin: 40px auto 20px;
+  text-align: center;
+  animation: bounceIn 0.8s ease-in-out;
+}
+
+/* Мультяшная анимация появления */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
