@@ -133,26 +133,6 @@
     <header class="hero-image">
       <img src="img/moving_with_the_magic_of_portals_2.jpg" alt="Переезд с магией порталов" />
     </header>
-    <div class="review-form">
-      <h2>Оставить отзыв</h2>
-      <input type="text" id="name" placeholder="Имя" required />
-      <textarea id="message" placeholder="Ваш отзыв..." required></textarea>
-      <!-- <label for="photo">Фото с переезда (по желанию):</label>
-    <input type="file" id="photo" accept="image/*" /> -->
-
-      <div>
-        Рейтинг:
-        <select id="rating">
-          <option value="5">⭐⭐⭐⭐⭐</option>
-          <option value="4">⭐⭐⭐⭐</option>
-          <option value="3">⭐⭐⭐</option>
-          <option value="2">⭐⭐</option>
-          <option value="1">⭐</option>
-        </select>
-      </div>
-      <button onclick="submitReview()">Отправить</button>
-    </div>
-
     <div class="review-card owner-review" id="owner-review">
       <div class="review-header">
         <img src="img/mykola.jpg" alt="Николай Бутылков" class="review-avatar" />
@@ -174,6 +154,27 @@
         </p>
       </div>
     </div>
+    <div class="review-form">
+      <h2>Оставить отзыв</h2>
+      <input type="text" id="name" placeholder="Имя" required />
+      <textarea id="message" placeholder="Ваш отзыв..." required></textarea>
+      <!-- <label for="photo">Фото с переезда (по желанию):</label>
+    <input type="file" id="photo" accept="image/*" /> -->
+
+      <div>
+        Рейтинг:
+        <select id="rating">
+          <option value="5">⭐⭐⭐⭐⭐</option>
+          <option value="4">⭐⭐⭐⭐</option>
+          <option value="3">⭐⭐⭐</option>
+          <option value="2">⭐⭐</option>
+          <option value="1">⭐</option>
+        </select>
+      </div>
+      <button onclick="submitReview()">Отправить</button>
+    </div>
+
+    
 
 
     <div id="reviews-section">Reviews...</div>
