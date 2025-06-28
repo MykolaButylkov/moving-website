@@ -8,7 +8,7 @@ body,
 html {
   height: 100%;
   font-family: Arial, sans-serif;
-  background-color: #36A9E1;
+  /* background-color: #36A9E1; пока акция */
 }
 
 img {
@@ -198,7 +198,7 @@ a:focus {
   max-width: 430px;
   height: auto;
   display: block;
-  margin-top: 60px;
+  /* margin-top: 60px; пока акция это в коментах */ 
 }
 
 .hotspots {
@@ -345,6 +345,21 @@ a:focus {
 .lang-btn.active {
   outline: 2px solid orange;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.hero-image-sale {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-image-sale img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .hero-image {
