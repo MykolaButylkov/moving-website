@@ -1,4 +1,6 @@
 .owner-review {
+  max-width: 430px;
+  margin: auto;
   border: 2px dashed #ffaa00;
   background-color: #fffce6;
   padding: 20px;
