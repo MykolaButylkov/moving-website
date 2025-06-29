@@ -17,10 +17,9 @@ const avatars = [
 ];
 
 function submitReview() {
-  const name = document.getElementById('name').value;
-  const message = document.getElementById('message').value;
-  const rating = document.getElementById('rating').value;
-  const photo = document.getElementById('photo').files[0];
+  const name = document.getElementById('nameReview').value;
+  const message = document.getElementById('messageReview').value;
+  const rating = document.getElementById('ratingReview').value;
 
   if (!name || !message) {
     alert('Пожалуйста, заполните все поля.');
@@ -37,18 +36,7 @@ function submitReview() {
     timestamp: new Date().toISOString()
   };
 
-  if (photo) {
-    const storageRef = storage.ref('review-photos/' + photo.name);
-    storageRef.put(photo).then(snapshot => {
-      snapshot.ref.getDownloadURL().then(url => {
-        reviewData.photoUrl = url;
-        reviewRef.set(reviewData);
-      });
-    });
-  } else {
-    reviewRef.set(reviewData);
-  }
-
+  reviewRef.set(reviewData);
   alert('Спасибо за отзыв!');
 }
 
@@ -63,9 +51,10 @@ function loadReviews() {
         const reviewEl = document.createElement('div');
         reviewEl.classList.add('review');
         reviewEl.dataset.reviewId = id;
+
         // Заголовок: аватар + имя
         const header = document.createElement('div');
-        header.classList.add('review-header'); // классы для стилей
+        header.classList.add('review-header');
 
         const avatar = document.createElement('img');
         avatar.src = review.avatarUrl || 'https://placekitten.com/80/80';
@@ -91,26 +80,31 @@ function loadReviews() {
         message.textContent = review.message;
         reviewEl.appendChild(message);
 
-        // Фото (если есть) — показываем как галерею
-        if (review.photoUrl) {
-          const gallery = document.createElement('div');
-          gallery.classList.add('review-gallery');
-
-          const img = document.createElement('img');
-          img.src = review.photoUrl;
-          img.alt = "Фото с переезда";
-          img.classList.add('review-photo');
-
-          gallery.appendChild(img);
-          reviewEl.appendChild(gallery);
+        // Кнопка удаления — только для админа
+        if (localStorage.getItem('isAdmin') === 'true') {
+          const del = document.createElement('button');
+          del.textContent = '🗑 Удалить';
+          del.classList.add('delete-btn');
+          del.style.marginTop = '10px';
+          del.style.background = '#e53935';
+          del.style.color = '#fff';
+          del.style.border = 'none';
+          del.style.padding = '8px 12px';
+          del.style.borderRadius = '6px';
+          del.style.cursor = 'pointer';
+          del.onclick = () => {
+            if (confirm('Удалить этот отзыв?')) {
+              db.ref('reviews/' + id).remove();
+              reviewEl.remove();
+            }
+          };
+          reviewEl.appendChild(del);
         }
 
-        // Добавляем карточку отзыва на страницу
         reviewsSection.appendChild(reviewEl);
       });
     }
   });
 }
-
 
 window.addEventListener('DOMContentLoaded', loadReviews);
