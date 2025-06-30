@@ -68,6 +68,48 @@ a:focus {
   height: auto;
 }
 
+.main-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  color: #222;
+  background: #fff8c6;
+  border: 5px dashed #ff8c00;
+  padding: 20px 25px;
+  margin: 30px auto;
+  max-width: 960px;
+  border-radius: 24px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  text-shadow: 1px 1px 0 #fff;
+  animation: bounceIn 0.7s ease-out;
+  line-height: 1.4;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 1.4rem;
+    padding: 15px 15px;
+    border-width: 3px;
+    border-radius: 16px;
+  }
+}
+
+
 .container {
   position: relative;
   display: grid;

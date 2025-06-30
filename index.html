@@ -2,18 +2,54 @@
 <html lang="ru">
 
 <head>
+  <!-- Основные метаданные -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Переезд без стресса</title>
-  <link rel="icon" href="img/favicon.jpg" type="image/jpg">
+
+  <!-- SEO -->
+  <title>Переезд по Израилю без стресса — от 999₪</title>
+  <meta name="description"
+    content="Квартирные переезды по Израилю: упаковка, подъем, доставка. Быстро, честно, с заботой — от 999₪.">
+  <meta name="keywords"
+    content="переезд, перевозка, Израиль, квартирный переезд, грузчики, переезд Тель-Авив, Хайфа, Иерусалим">
+  <link rel="canonical" href="https://veselepereezdy.com/">
+
+  <!-- Open Graph (соцсети) -->
+  <meta property="og:title" content="Переезд по Израилю без стресса — от 999₪">
+  <meta property="og:description" content="Квартирные и офисные переезды по всей стране. Быстро, честно и с заботой.">
+  <meta property="og:image" content="https://veselepereezdy.com/img/og-image.jpg">
+  <meta property="og:url" content="https://veselepereezdy.com/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Переезд по Израилю без стресса">
+  <meta name="twitter:description" content="Переезды от 999₪ по Тель-Авиву, Хайфе и всему Израилю.">
+  <meta name="twitter:image" content="https://veselepereezdy.com/img/og-image.jpg">
+
+  <!-- Язык -->
+  <meta http-equiv="Content-Language" content="ru" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/favicon.jpg" type="image/jpg" />
+
+  <!-- Стили и шрифты -->
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/owner.css" />
   <link rel="stylesheet" href="css/comment.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/seo.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap" rel="stylesheet" />
 
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17102315198"></script>
-  <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'AW-17102315198'); </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'AW-17102315198');
+  </script>
+
+  <!-- Приватность и язык -->
   <script>
     function acceptPrivacy() {
       localStorage.setItem("privacyAccepted", "true");
@@ -25,9 +61,7 @@
         document.getElementById("privacy-popup").style.display = "block";
       }
     });
-  </script>
-  <script>
-    // Автоматическое переключение языка по URL параметру
+
     function getLangFromUrl() {
       const params = new URLSearchParams(window.location.search);
       const lang = params.get('lang');
@@ -39,11 +73,10 @@
       const lang = getLangFromUrl();
       if (lang) {
         const targetBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
-        if (targetBtn) targetBtn.click(); // имитируем клик по кнопке
+        if (targetBtn) targetBtn.click();
       }
     });
-  </script>
-  <script>
+
     window.addEventListener("load", () => {
       const preloader = document.getElementById("preloader");
       if (preloader) {
@@ -52,8 +85,9 @@
       }
     });
   </script>
-
 </head>
+
+
 
 <body>
   <div id="preloader">
@@ -80,6 +114,11 @@
     </div>
 
     <header class="hero-image-sale" style="padding-top: 60px;">
+      <h1 class="main-title">
+        Квартирные переезды по Израилю — от 999₪. Без стресса!
+      </h1>
+
+
       <img src="img/999SHEKELEY.png" alt="Переезд от 999 шекелей" />
       <img src="img/999SHEKELEY-ua.png" alt="Переїзд від 999 шекелів" />
       <img src="img/999SHEKELEY-en.png" alt="deal for one apartment from 999shekels" />
@@ -151,7 +190,8 @@
           Меня зовут Николай Бутылков — я сам лично стою за этим сервисом переездов🚚.<br>
           Если вы читаете это сообщение — значит, вы ищете не просто перевозку, а нормальных людей, с которыми можно
           спокойно договориться, без нервов и сюрпризов.
-          Я с вами на связи от первого 📞звонка и до последней коробки📦, всегда честно объясняю, как всё будет, и слежу,
+          Я с вами на связи от первого 📞звонка и до последней коробки📦, всегда честно объясняю, как всё будет, и
+          слежу,
           чтобы всё прошло ровно.
           Хотите — оставьте отзыв, хотите — просто напишите 'привет'😊.<br>
           <strong> Всё сделаю как для себя 💪</strong>
@@ -160,7 +200,7 @@
     </div>
     <div class="review-form">
       <h2>Оставить отзыв</h2>
-      <input type="text" id="nameReview" placeholder="Имя"/>
+      <input type="text" id="nameReview" placeholder="Имя" />
       <textarea id="messageReview" placeholder="Ваш отзыв..."></textarea>
       <!-- <label for="photo">Фото с переезда (по желанию):</label>
     <input type="file" id="photo" accept="image/*" /> -->
@@ -377,18 +417,41 @@
     });
   </script>
 
-<script src="js/script.js"></script>
-<script src="js/owner-review.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/owner-review.js"></script>
 
-<!-- Firebase SDK -->
+  <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
-  
+
   <!-- Скрипты проекта -->
   <script src="js/firebase.js"></script>
   <script src="js/review.js"></script>
-  
+
+  <!-- SEO -->
+
+  <div style="position:absolute; left:-9999px;">
+    <h2>Переезд в Израиле: Тель-Авив, Нетания, Хайфа, Иерусалим</h2>
+    <p>
+      Мы предоставляем услуги переезда по всей территории Израиля. Наши специалисты обеспечивают упаковку, разборку
+      мебели, подъем на этаж, аккуратную доставку и экономичный расчет. Переезды в Тель-Авиве, Хайфе, Нетании, Бат-Яме и
+      других городах — без стресса и по справедливой цене.
+    </p>
+  </div>
+  <div class="seo-hidden-text">
+  <h2>Переезды по Израилю — без стресса</h2>
+  <p>
+    Мы организуем квартирные и офисные переезды по всему Израилю: Тель-Авив, Хайфа, Иерусалим, Бат-Ям, Нетания, Ашдод, Ашкелон и другие города.
+    Услуги включают: упаковку, разборку и сборку мебели, подъем на этаж, аккуратную транспортировку вещей.
+  </p>
+  <p>
+    Наша команда работает без выходных, честно и с заботой о каждом клиенте. Закажите переезд от 999₪ — и убедитесь сами!
+  </p>
+</div>
+
+
+
 </body>
 
 </html>
