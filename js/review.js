@@ -11,7 +11,37 @@ const avatars = [
   'https://api.dicebear.com/8.x/micah/svg?seed=user12',
   'https://api.dicebear.com/8.x/micah/svg?seed=user14',
   'https://api.dicebear.com/8.x/micah/svg?seed=user15',
+  'https://api.dicebear.com/8.x/micah/svg?seed=user17',
+  'https://api.dicebear.com/8.x/micah/svg?seed=user18',
+  'https://api.dicebear.com/8.x/micah/svg?seed=user19',
+  'https://api.dicebear.com/8.x/micah/svg?seed=user20',
 ];
+
+// Отрисовываем все аватары на странице
+window.addEventListener('DOMContentLoaded', () => {
+  const grid = document.getElementById('avatarGrid');
+  const hiddenInput = document.getElementById('avatarReview');
+
+  avatars.forEach((url, index) => {
+    const div = document.createElement('div');
+    div.className = 'avatar-option';
+    div.innerHTML = `<img src="${url}" alt="avatar-${index}">`;
+
+    div.addEventListener('click', () => {
+      document.querySelectorAll('.avatar-option').forEach(el => el.classList.remove('selected'));
+      div.classList.add('selected');
+      hiddenInput.value = url;
+    });
+
+    grid.appendChild(div);
+  });
+
+  // По умолчанию выбираем первый
+  if (avatars.length > 0) {
+    grid.children[0].classList.add('selected');
+    hiddenInput.value = avatars[0];
+  }
+});
 
 function submitReview() {
   const name = document.getElementById('nameReview').value;
@@ -23,7 +53,7 @@ function submitReview() {
     return;
   }
 
-  const avatar = avatars[Math.floor(Math.random() * avatars.length)];
+  const avatar = document.getElementById('avatarReview').value;
   const reviewRef = db.ref('reviews').push();
   const reviewData = {
     name,
