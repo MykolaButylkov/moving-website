@@ -2,18 +2,15 @@ const avatars = [
   // Micah (современный мульт стиль)
   'https://api.dicebear.com/8.x/micah/svg?seed=user1',
   'https://api.dicebear.com/8.x/micah/svg?seed=user2',
-  'https://api.dicebear.com/8.x/micah/svg?seed=user3',
   'https://api.dicebear.com/8.x/micah/svg?seed=user4',
   'https://api.dicebear.com/8.x/micah/svg?seed=user5',
-  'https://api.dicebear.com/8.x/micah/svg?seed=user6',
   'https://api.dicebear.com/8.x/micah/svg?seed=user7',
-  'https://api.dicebear.com/8.x/micah/svg?seed=user8',
   'https://api.dicebear.com/8.x/micah/svg?seed=user9',
   'https://api.dicebear.com/8.x/micah/svg?seed=user10',
   'https://api.dicebear.com/8.x/micah/svg?seed=user11',
   'https://api.dicebear.com/8.x/micah/svg?seed=user12',
-  'https://api.dicebear.com/8.x/micah/svg?seed=user13',
   'https://api.dicebear.com/8.x/micah/svg?seed=user14',
+  'https://api.dicebear.com/8.x/micah/svg?seed=user15',
 ];
 
 function submitReview() {
