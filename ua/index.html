@@ -97,12 +97,12 @@
         <div id="privacy-popup" class="privacy-popup">
             <div class="privacy-content">
                 <p>
-                    Мы используем файлы cookie и обрабатываем персональные данные, чтобы улучшить работу сайта.
-                    Подробнее читайте
-                    в
-                    <a href="../privacy-policy/privacy-policy.html" target="_blank">Политике конфиденциальности</a>.
+                    Ми використовуємо файли cookie та обробляємо персональні дані, щоб покращити роботу сайту.
+                    Детальніше читайте в
+                    <a href="../privacy-policy/privacy-policy.html" target="_blank">Політиці конфіденційності</a>.
                 </p>
-                <button onclick="acceptPrivacy()">Принять</button>
+
+                <button onclick="acceptPrivacy()">Прийняти</button>
             </div>
         </div>
 
@@ -116,7 +116,11 @@
 
         <header class="hero-image-sale" style="padding-top: 60px;">
             <h1 class="main-title">
-                🚛 Квартирные переезды по Израилю — без стресса!
+                🚛 Квартирні переїзди по Ізраїлю — без стресу!
+
+                <button class="button-panel_button  pulsate" style="margin: auto;"
+                    onclick="window.open('https://wa.me/972548675869', '_blank')">💬
+                    WhatsApp</button>
             </h1>
 
 
@@ -124,7 +128,7 @@
             <img src="../img/999SHEKELEY-ua.png" alt="Переїзд від 999 шекелів" />
             <img src="../img/999SHEKELEY-en.png" alt="deal for one apartment from 999shekels" />
             <img src="../img/999SHEKELEY-he.png" alt="מבצע מעבר דירה החל מ-999 שקלים">
-            <a href="#form-wrapper-stopper" class="cartoon-button">🚚 Оставить заявку</a>
+            <a href="#form-wrapper-stopper" class="cartoon-button">🚚 Залишити заявку</a>
 
         </header>
 
@@ -158,19 +162,19 @@
 
         <div class="form-container" id="form-container">
             <div class="lang-switcher">
-                <button class="lang-btn active" data-lang="ru" title="Русский"></button>
-                <button class="lang-btn" data-lang="ua" title="Українська"></button>
+                <button class="lang-btn" data-lang="ru" title="Русский"></button>
+                <button class="lang-btn active" data-lang="ua" title="Українська"></button>
                 <button class="lang-btn" data-lang="en" title="English"></button>
                 <button class="lang-btn" data-lang="he" title="עברית"></button>
             </div>
             <div id="form-wrapper-stopper"></div>
             <div class="form-wrapper" id="form-wrapper">
-                <h2 id="form-title">Оставить заявку</h2>
+                <h2 id="form-title">Залишити заявку</h2>
                 <form>
-                    <input type="text" id="name" placeholder="Имя" required />
+                    <input type="text" id="name" placeholder="Им'я" required />
                     <input type="tel" id="phone" placeholder="Телефон" required />
-                    <textarea id="message" placeholder="Сообщение"></textarea>
-                    <button type="submit" id="submit-btn">Отправить</button>
+                    <textarea id="message" placeholder="Повідомлення"></textarea>
+                    <button type="submit" id="submit-btn">Відправити</button>
                 </form>
             </div>
         </div>
@@ -180,30 +184,29 @@
         </header>
         <div class="review-card owner-review" id="owner-review">
             <div class="review-header">
-                <img src="../img/mykola.jpg" alt="Николай Бутылков" class="review-avatar" />
+                <img src="../img/mykola.jpg" alt="Микола Бутилков" class="review-avatar-owner" />
                 <div>
-                    <div class="review-name">Николай Бутылков <span class="owner-badge">владелец</span></div>
+                    <div class="review-name">Микола Бутилков <span class="owner-badge">власник</span></div>
                     <div class="review-rating">⭐⭐⭐⭐⭐</div>
                 </div>
             </div>
             <div class="review-text">
                 <p>
-                    Привет!👋 <br>
-                    Меня зовут Николай Бутылков — я сам лично стою за этим сервисом переездов🚚.<br>
-                    Если вы читаете это сообщение — значит, вы ищете не просто перевозку, а нормальных людей, с которыми
-                    можно
-                    спокойно договориться, без нервов и сюрпризов.
-                    Я с вами на связи от первого 📞звонка и до последней коробки📦, всегда честно объясняю, как всё
-                    будет, и
-                    слежу,
-                    чтобы всё прошло ровно.
-                    Хотите — оставьте отзыв, хотите — просто напишите 'привет'😊.<br>
-                    <strong> Всё сделаю как для себя 💪</strong>
+                    Привіт!👋 <br>
+                    Мене звати Микола Бутилков — я особисто стою за цим сервісом переїздів🚚.<br>
+                    Якщо ви читаєте це повідомлення — значить, ви шукаєте не просто перевезення, а нормальних людей, з
+                    якими можна
+                    спокійно домовитись, без стресу та несподіванок.<br>
+                    Я з вами на зв’язку від першого 📞дзвінка до останньої коробки📦, завжди чесно пояснюю, як усе буде,
+                    і стежу,
+                    щоб усе пройшло рівно.
+                    Хочете — залишайте відгук, хочете — просто напишіть «привіт»😊.<br>
+                    <strong> Зроблю все, як для себе 💪</strong>
                 </p>
             </div>
         </div>
         <div class="review-form">
-            <h2>Оставить отзыв</h2>
+            <h2>Залишити відгук</h2>
             <input type="text" id="nameReview" placeholder="Имя" />
             <textarea id="messageReview" placeholder="Ваш отзыв..."></textarea>
             <!-- <label for="photo">Фото с переезда (по желанию):</label>
@@ -219,15 +222,15 @@
                     <option value="1">⭐</option>
                 </select>
             </div>
-            <button onclick="submitReview()">Отправить</button>
+            <button onclick="submitReview()">Відправити</button>
         </div>
 
         <div class="container">
-            <h2 class="header-costomer-review">Отзывы наших клиентов 🥰</h2>
+            <h2 class="header-costomer-review">Відгуки наших клієнтів 🥰</h2>
         </div>
 
 
-        <div id="reviews-section">Reviews...</div>
+        <div id="reviews-section">Відгуки...</div>
         <!-- <p style="text-align: center; margin-top: 40px;">
       <a href="admin.html" style="color: gray; font-size: 14px;">Вход для администратора</a>
     </p> -->
@@ -312,7 +315,7 @@
 
 
         window.addEventListener('load', () => {
-            const lang = getLangFromUrl() || 'ru';
+            const lang = getLangFromUrl() || 'ua';
             applyLanguage(lang);
         });
 
@@ -320,7 +323,7 @@
         // Установка языка из URL или по умолчанию
         window.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
-            const lang = urlParams.get('lang') || 'ru';
+            const lang = urlParams.get('lang') || 'ua';
             applyLanguage(lang);
 
             const selectedBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
@@ -458,7 +461,7 @@
         </p>
     </div>
 
-
+    <script src="../js/utils-pathurl.js"></script>
 
 </body>
 

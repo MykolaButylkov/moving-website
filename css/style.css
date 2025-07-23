@@ -163,6 +163,27 @@ a:focus {
   box-shadow: 2px 2px 0 #333;
 }
 
+.pulsate {
+  animation: pulse 1.5s infinite;
+  transition: transform 0.3s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 255, 0, 0.7);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 12px rgba(0, 255, 0, 0.5);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 255, 0, 0.7);
+  }
+}
+
+
 .close-icon {
   position: absolute;
   top: -15px;

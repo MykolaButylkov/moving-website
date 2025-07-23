@@ -9,9 +9,9 @@
   box-shadow: 0 4px 10px rgba(255, 204, 0, 0.3);
 }
 
-.review-avatar {
-  width: 60px;
-  height: 60px;
+.review-avatar-owner {
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   margin-right: 15px;
   border: 2px solid #ffaa00;
