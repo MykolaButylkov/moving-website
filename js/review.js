@@ -7,14 +7,11 @@ const avatars = [
   'https://api.dicebear.com/8.x/micah/svg?seed=user7',
   'https://api.dicebear.com/8.x/micah/svg?seed=user9',
   'https://api.dicebear.com/8.x/micah/svg?seed=user10',
-  'https://api.dicebear.com/8.x/micah/svg?seed=user11',
-  'https://api.dicebear.com/8.x/micah/svg?seed=user12',
-  'https://api.dicebear.com/8.x/micah/svg?seed=user14',
-  'https://api.dicebear.com/8.x/micah/svg?seed=user15',
-  'https://api.dicebear.com/8.x/micah/svg?seed=user17',
   'https://api.dicebear.com/8.x/micah/svg?seed=user18',
   'https://api.dicebear.com/8.x/micah/svg?seed=user19',
-  'https://api.dicebear.com/8.x/micah/svg?seed=user20',
+  'https://api.dicebear.com/8.x/micah/svg?seed=user22',
+  'https://api.dicebear.com/8.x/micah/svg?seed=user27',
+  'https://api.dicebear.com/8.x/micah/svg?seed=user28',
 ];
 
 // Отрисовываем все аватары на странице
