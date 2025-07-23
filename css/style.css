@@ -166,6 +166,7 @@ a:focus {
 .pulsate {
   animation: pulse 1.5s infinite;
   transition: transform 0.3s;
+  background-color: #25D366;
 }
 
 @keyframes pulse {
