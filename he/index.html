@@ -65,16 +65,26 @@
 
         function getLangFromUrl() {
             const params = new URLSearchParams(window.location.search);
-            const lang = params.get('lang');
+            const langParam = params.get('lang');
+
             const allowed = ['ru', 'ua', 'en', 'he'];
-            return allowed.includes(lang) ? lang : null;
+            if (allowed.includes(langParam)) return langParam;
+
+            // Попробуем определить по пути, если ?lang= отсутствует
+            const path = window.location.pathname;
+            for (const lang of allowed) {
+                if (path.includes(`/${lang}/`)) return lang;
+            }
+
+            // Язык по умолчанию
+            return 'he';
         }
+
 
         window.addEventListener('DOMContentLoaded', () => {
             const lang = getLangFromUrl();
             if (lang) {
                 const targetBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
-                if (targetBtn) targetBtn.click();
             }
         });
 
@@ -98,12 +108,12 @@
         <div id="privacy-popup" class="privacy-popup">
             <div class="privacy-content">
                 <p>
-                    Мы используем файлы cookie и обрабатываем персональные данные, чтобы улучшить работу сайта.
-                    Подробнее читайте
-                    в
-                    <a href="../privacy-policy.html" target="_blank">Политике конфиденциальности</a>.
+                    אנו משתמשים בקובצי Cookie ומעבדים נתונים אישיים כדי לשפר את חוויית השימוש באתר.
+                    למידע נוסף קרא/י ב־
+                    <a href="../privacy-policy/privacy-policy.html" target="_blank">מדיניות הפרטיות
+                    </a>.
                 </p>
-                <button onclick="acceptPrivacy()">Принять</button>
+                <button onclick="acceptPrivacy()">אישור</button>
             </div>
         </div>
 
@@ -117,7 +127,7 @@
 
         <header class="hero-image-sale" style="padding-top: 60px;">
             <h1 class="main-title">
-                🚛 Квартирные переезды по Израилю — без стресса!
+                🚛 מעברי דירה בכל רחבי ישראל — בלי לחץ!
             </h1>
 
 
@@ -125,7 +135,7 @@
             <img src="../img/999SHEKELEY-ua.png" alt="Переїзд від 999 шекелів" />
             <img src="../img/999SHEKELEY-en.png" alt="deal for one apartment from 999shekels" />
             <img src="../img/999SHEKELEY-he.png" alt="מבצע מעבר דירה החל מ-999 שקלים">
-            <a href="#form-wrapper-stopper" class="cartoon-button">🚚 Оставить заявку</a>
+            <a href="#form-wrapper-stopper" class="cartoon-button">🚚 שלח פנייה</a>
 
         </header>
 
@@ -143,7 +153,7 @@
                     <div class="close-icon">✖</div>
                     <button class="button-panel_button" id="call-button-2"
                         onclick="window.location.href='tel:+972548675869'">📞
-                        Позвонить</button>
+                        התקשר </button>
                     <button class="button-panel_button" onclick="window.open('https://wa.me/972548675869', '_blank')">💬
                         WhatsApp</button>
                 </div>
@@ -159,6 +169,10 @@
 
         <div class="form-container" id="form-container">
             <div class="lang-switcher">
+                <!-- <a href="../ru/index.html"><button class="lang-btn active" data-lang="ru" title="Русский"></button></a>
+                <a href="../ua/index.html"><button class="lang-btn" data-lang="ua" title="Українська"></button></a>
+                <a href="../en/index.html"><button class="lang-btn" data-lang="en" title="English"></button></a>
+                <a href="../he/index.html"><button class="lang-btn" data-lang="he" title="עברית"></button></a> -->
                 <button class="lang-btn active" data-lang="ru" title="Русский"></button>
                 <button class="lang-btn" data-lang="ua" title="Українська"></button>
                 <button class="lang-btn" data-lang="en" title="English"></button>
@@ -166,12 +180,12 @@
             </div>
             <div id="form-wrapper-stopper"></div>
             <div class="form-wrapper" id="form-wrapper">
-                <h2 id="form-title">Оставить заявку</h2>
+                <h2 id="form-title">השאר פנייה</h2>
                 <form>
-                    <input type="text" id="name" placeholder="Имя" required />
-                    <input type="tel" id="phone" placeholder="Телефон" required />
-                    <textarea id="message" placeholder="Сообщение"></textarea>
-                    <button type="submit" id="submit-btn">Отправить</button>
+                    <input type="text" id="name" placeholder="שם" required />
+                    <input type="tel" id="phone" placeholder="טלפון " required />
+                    <textarea id="message" placeholder="הודעה"></textarea>
+                    <button type="submit" id="submit-btn">שליחה </button>
                 </form>
             </div>
         </div>
@@ -183,35 +197,31 @@
             <div class="review-header">
                 <img src="../img/mykola.jpg" alt="Николай Бутылков" class="review-avatar" />
                 <div>
-                    <div class="review-name">Николай Бутылков <span class="owner-badge">владелец</span></div>
+                    <div class="review-name">מיקולה בוטילקוב <span class="owner-badge">בעל</span></div>
                     <div class="review-rating">⭐⭐⭐⭐⭐</div>
                 </div>
             </div>
             <div class="review-text">
                 <p>
-                    Привет!👋 <br>
-                    Меня зовут Николай Бутылков — я сам лично стою за этим сервисом переездов🚚.<br>
-                    Если вы читаете это сообщение — значит, вы ищете не просто перевозку, а нормальных людей, с которыми
-                    можно
-                    спокойно договориться, без нервов и сюрпризов.
-                    Я с вами на связи от первого 📞звонка и до последней коробки📦, всегда честно объясняю, как всё
-                    будет, и
-                    слежу,
-                    чтобы всё прошло ровно.
-                    Хотите — оставьте отзыв, хотите — просто напишите 'привет'😊.<br>
-                    <strong> Всё сделаю как для себя 💪</strong>
+                    שלום!👋 <br>
+                    שמי מיקולה בוטילקוב — אני עומד אישית מאחורי השירות הזה של ההובלות🚚.<br>
+                    אם אתה קורא את ההודעה הזו, כנראה שאתה מחפש לא רק הובלה, אלא אנשים אמינים שאפשר לסמוך עליהם,
+                    בלי לחץ ובלי הפתעות.<br>
+                    אני איתך מהשיחה הראשונה 📞 ועד הקרטון האחרון 📦, מדבר בגובה העיניים ודואג להכל.
+                    אפשר להשאיר ביקורת או פשוט לכתוב "היי" 😊.<br>
+                    <strong> אני אטפל בהובלה כאילו זו שלי 💪</strong>
                 </p>
             </div>
         </div>
         <div class="review-form">
-            <h2>Оставить отзыв</h2>
-            <input type="text" id="nameReview" placeholder="Имя" />
-            <textarea id="messageReview" placeholder="Ваш отзыв..."></textarea>
+            <h2>השאר ביקורת</h2>
+            <input type="text" id="nameReview" placeholder="שם" />
+            <textarea id="messageReview" placeholder="הביקורת שלך..."></textarea>
             <!-- <label for="photo">Фото с переезда (по желанию):</label>
     <input type="file" id="photo" accept="image/*" /> -->
 
             <div>
-                Рейтинг:
+                בחר דירוג:
                 <select id="ratingReview">
                     <option value="5">⭐⭐⭐⭐⭐</option>
                     <option value="4">⭐⭐⭐⭐</option>
@@ -220,11 +230,11 @@
                     <option value="1">⭐</option>
                 </select>
             </div>
-            <button onclick="submitReview()">Отправить</button>
+            <button onclick="submitReview()">שליחה</button>
         </div>
 
         <div class="container">
-            <h2 class="header-costomer-review">Отзывы наших клиентов 🥰</h2>
+            <h2 class="header-costomer-review"> ביקורות של הלקוחות שלנו 🥰</h2>
         </div>
 
 
@@ -288,7 +298,7 @@
         const callBtn = document.getElementById('call-button');
 
         function applyLanguage(lang) {
-            const t = translations[lang] || translations['ru'];
+            const t = translations[lang] || translations['he'];
 
             const title = document.getElementById('form-title');
             const name = document.getElementById('name');
@@ -313,7 +323,7 @@
 
 
         window.addEventListener('load', () => {
-            const lang = getLangFromUrl() || 'ru';
+            const lang = getLangFromUrl() || 'he';
             applyLanguage(lang);
         });
 
@@ -321,7 +331,7 @@
         // Установка языка из URL или по умолчанию
         window.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
-            const lang = urlParams.get('lang') || 'ru';
+            const lang = urlParams.get('lang') || 'he';
             applyLanguage(lang);
 
             const selectedBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
@@ -383,7 +393,7 @@
             const message = document.getElementById('message').value.trim();
 
             if (!name || !phone) {
-                alert("Пожалуйста, заполните имя и телефон.");
+                alert("אנא מלא/י את השם ומספר הטלפון");
                 return;
             }
 
@@ -412,13 +422,13 @@
                 .then(res => res.json())
                 .then(data => {
                     if (data.ok) {
-                        alert("✅ Заявка успешно отправлена!");
+                        alert("✅ הבקשה נשלחה בהצלחה!");
                         document.querySelector('form').reset();
                     } else {
-                        alert("❌ Ошибка при отправке. Попробуйте позже.");
+                        alert("❌ שגיאה בשליחה. נסו שוב מאוחר יותר.");
                     }
                 })
-                .catch(() => alert("⚠️ Не удалось отправить заявку."));
+                .catch(() => alert("⚠️ לא ניתן היה לשלוח את הבקשה"));
         });
     </script>
 
@@ -437,27 +447,25 @@
     <!-- SEO -->
 
     <div style="position:absolute; left:-9999px;">
-        <h2>Переезд в Израиле: Тель-Авив, Нетания, Хайфа, Иерусалим</h2>
+        <h2>הובלה בישראל: תל אביב, נתניה, חיפה, ירושלים</h2>
         <p>
-            Мы предоставляем услуги переезда по всей территории Израиля. Наши специалисты обеспечивают упаковку,
-            разборку
-            мебели, подъем на этаж, аккуратную доставку и экономичный расчет. Переезды в Тель-Авиве, Хайфе, Нетании,
-            Бат-Яме и
-            других городах — без стресса и по справедливой цене.
+            אנו מספקים שירותי הובלה בכל רחבי ישראל. המומחים שלנו מבצעים אריזה,
+            פירוק רהיטים, העלאה לקומה, הובלה זהירה וחישוב כלכלי. הובלות בתל אביב, חיפה, נתניה,
+            בת ים וערים נוספות – בלי סטרס ובמחיר הוגן.
         </p>
     </div>
     <div class="seo-hidden-text">
-        <h2>Переезды по Израилю — без стресса</h2>
+        <h2>הובלות בישראל — בלי סטרס</h2>
         <p>
-            Мы организуем квартирные и офисные переезды по всему Израилю: Тель-Авив, Хайфа, Иерусалим, Бат-Ям, Нетания,
-            Ашдод, Ашкелон и другие города.
-            Услуги включают: упаковку, разборку и сборку мебели, подъем на этаж, аккуратную транспортировку вещей.
+            אנו מארגנים הובלות דירה ומשרד בכל רחבי ישראל: תל אביב, חיפה, ירושלים, בת ים, נתניה,
+            אשדוד, אשקלון וערים נוספות.
+            השירותים כוללים: אריזה, פירוק והרכבת רהיטים, העלאה לקומה והובלה זהירה של החפצים.
         </p>
         <p>
-            Наша команда работает без выходных, честно и с заботой о каждом клиенте. Закажите переезд от 999₪ — и
-            убедитесь сами!
+            הצוות שלנו עובד גם בסופי שבוע, ביושר ועם דאגה לכל לקוח. הזמינו הובלה החל מ־999₪ — ותראו בעצמכם!
         </p>
     </div>
+
 
 
 

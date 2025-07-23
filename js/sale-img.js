@@ -1,6 +1,14 @@
+function getLangFromPath() {
+    const path = window.location.pathname;
+    if (path.includes('/ru/')) return 'ru';
+    if (path.includes('/ua/')) return 'ua';
+    if (path.includes('/en/')) return 'en';
+    if (path.includes('/he/')) return 'he';
+    return 'ru'; // язык по умолчанию
+}
+
 function updateHeroImageByLang() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const lang = urlParams.get('lang');
+    const lang = getLangFromPath();
 
     const imgRu = document.querySelector('img[alt^="Переезд от"]');
     const imgUa = document.querySelector('img[alt^="Переїзд від"]');
@@ -29,11 +37,6 @@ function updateHeroImageByLang() {
         document.body.style.backgroundColor = '#FDC22C';
         if (imgHe) imgHe.style.display = 'block';
         if (button) button.textContent = '🚚 שלח בקשה';
-    } else {
-        // По умолчанию RU
-        document.body.style.backgroundColor = '#B7D9DD';
-        if (imgRu) imgRu.style.display = 'block';
-        if (button) button.textContent = '🚚 Оставить заявку';
     }
 }
 

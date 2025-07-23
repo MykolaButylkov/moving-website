@@ -56,9 +56,12 @@ const ownerReviewTranslations = {
 };
 
 function getCurrentLang() {
-    const params = new URLSearchParams(window.location.search);
-    const lang = params.get("lang");
-    return ["ru", "ua", "en", "he"].includes(lang) ? lang : "ru";
+    const path = window.location.pathname;
+    if (path.includes('/he/')) return 'he';
+    if (path.includes('/en/')) return 'en';
+    if (path.includes('/ua/')) return 'ua';
+    if (path.includes('/ru/')) return 'ru';
+    return 'ru'; // язык по умолчанию
 }
 
 function updateOwnerReviewLang() {
