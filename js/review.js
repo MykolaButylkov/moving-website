@@ -1,20 +1,20 @@
 const avatars = [
   // Micah (современный мульт стиль)
   'https://api.dicebear.com/8.x/micah/svg?seed=user1',
-  'https://api.dicebear.com/8.x/micah/svg?seed=user35',
+  'https://api.dicebear.com/8.x/micah/svg?seed=user44',
   'https://api.dicebear.com/8.x/micah/svg?seed=user4',
-  'https://api.dicebear.com/8.x/micah/svg?seed=user7',
+  'https://api.dicebear.com/8.x/micah/svg?seed=use45',
   'https://api.dicebear.com/8.x/micah/svg?seed=user9',
   'https://api.dicebear.com/8.x/micah/svg?seed=user10',
   'https://api.dicebear.com/8.x/micah/svg?seed=user5',
-  'https://api.dicebear.com/8.x/micah/svg?seed=user19',
+  'https://api.dicebear.com/8.x/micah/svg?seed=user43',
   'https://api.dicebear.com/8.x/micah/svg?seed=user22',
   'https://api.dicebear.com/8.x/micah/svg?seed=user27',
   'https://api.dicebear.com/8.x/micah/svg?seed=user28',
-  'https://api.dicebear.com/8.x/micah/svg?seed=user29',
+  'https://api.dicebear.com/8.x/micah/svg?seed=user47',
   'https://api.dicebear.com/8.x/micah/svg?seed=user30',
   'https://api.dicebear.com/8.x/micah/svg?seed=user31',
-  'https://api.dicebear.com/8.x/micah/svg?seed=user32',
+  'https://api.dicebear.com/8.x/micah/svg?seed=user36',
 ];
 
 // Отрисовываем все аватары на странице
@@ -41,6 +41,8 @@ window.addEventListener('DOMContentLoaded', () => {
     grid.children[0].classList.add('selected');
     hiddenInput.value = avatars[0];
   }
+
+  loadReviews(); // загружаем отзывы после инициализации аватаров
 });
 
 function submitReview() {
@@ -74,7 +76,12 @@ function loadReviews() {
     reviewsSection.innerHTML = ''; // Очистка перед добавлением новых отзывов
     const reviews = snapshot.val();
     if (reviews) {
-      Object.entries(reviews).forEach(([id, review]) => {
+      // Сортировка по дате (новые выше)
+      const sortedReviews = Object.entries(reviews).sort((a, b) => {
+        return new Date(b[1].timestamp) - new Date(a[1].timestamp);
+      });
+
+      sortedReviews.forEach(([id, review]) => {
         const reviewEl = document.createElement('div');
         reviewEl.classList.add('review');
         reviewEl.dataset.reviewId = id;
@@ -95,6 +102,20 @@ function loadReviews() {
         header.appendChild(avatar);
         header.appendChild(name);
         reviewEl.appendChild(header);
+
+        // Дата создания
+        const date = document.createElement('p');
+        const createdAt = new Date(review.timestamp);
+        const day = String(createdAt.getDate()).padStart(2, '0');
+        const month = String(createdAt.getMonth() + 1).padStart(2, '0'); // Месяцы с 0
+        const year = createdAt.getFullYear();
+        const hours = String(createdAt.getHours()).padStart(2, '0');
+        const minutes = String(createdAt.getMinutes()).padStart(2, '0');
+        date.textContent = `🕒 ${day}.${month}.${year} ${hours}:${minutes}`;
+
+        date.style.fontSize = '0.85em';
+        date.style.color = '#777';
+        reviewEl.appendChild(date);
 
         // Рейтинг
         const rating = document.createElement('p');
@@ -133,5 +154,3 @@ function loadReviews() {
     }
   });
 }
-
-window.addEventListener('DOMContentLoaded', loadReviews);
