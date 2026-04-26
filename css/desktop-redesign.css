@@ -200,7 +200,7 @@
       box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.9), 4px 4px 0 #24242f;
     }
   }
- 
+
 
   .desktop-hero,
   .desktop-process,
@@ -563,7 +563,7 @@
   .form-container {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(0, .92fr) minmax(400px, 1.08fr);
+    display: flex;;
     gap: 24px;
     align-items: stretch;
     max-width: none;
@@ -823,18 +823,22 @@
   .desktop-hero,
   .desktop-process,
   .desktop-trust,
-  .form-container {
-    grid-template-columns: 1fr;
-  }
+  {
+  grid-template-columns: 1fr;
+}
 
-  .desktop-services__grid,
-  #reviews-section {
-    grid-template-columns: 1fr;
-  }
+.form-container {
+  display: flex;
+}
 
-  .desktop-stats {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.desktop-services__grid,
+#reviews-section {
+  grid-template-columns: 1fr;
+}
+
+.desktop-stats {
+  grid-template-columns: repeat(3, 1fr);
+}
 }
 
 @media (max-width: 1023px) {
