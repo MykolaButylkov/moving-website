@@ -500,7 +500,7 @@ a:focus {
   max-width: 430px;
   margin: auto;
   place-items: center;
-  height: 69vh;
+  /* height: 69vh; */
   background-size: cover;
   background-position: center;
   transition: background-image 0.3s ease-in-out;

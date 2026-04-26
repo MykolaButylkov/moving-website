@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
     <!-- Основные метаданные -->
@@ -7,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO -->
-    <title>Stress-Free Moving in Israel — From 999₪</title>
+    <title>Stress-Free Moving in Israel — From 99₪</title>
     <meta name="description"
-        content="Apartment and office moving across Israel: packing, lifting, and delivery. Stress-free service from 999₪.">
+        content="Apartment and office moving across Israel: packing, lifting, and delivery. Stress-free service from 99₪.">
     <meta name="keywords"
         content="moving, apartment moving, movers in Israel, furniture delivery, Tel Aviv, Haifa, Jerusalem, moving company, moving services Israel, stress-free moving">
     <link rel="canonical" href="https://veselepereezdy.com/">
 
     <!-- Open Graph (social media) -->
-    <meta property="og:title" content="Stress-Free Moving in Israel — From 999₪">
+    <meta property="og:title" content="Stress-Free Moving in Israel — From 99₪">
     <meta property="og:description"
         content="Apartment and office moves across the country. Fast, honest, and with care.">
     <meta property="og:image" content="https://veselepereezdy.com/img/og-image.jpg">
@@ -25,7 +25,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Stress-Free Moving in Israel">
-    <meta name="twitter:description" content="Moves from 999₪ in Tel Aviv, Haifa, and all over Israel.">
+    <meta name="twitter:description" content="Moves from 99₪ in Tel Aviv, Haifa, and all over Israel.">
     <meta name="twitter:image" content="https://veselepereezdy.com/img/og-image.jpg">
 
     <!-- Language -->
@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="../css/owner.css" />
     <link rel="stylesheet" href="../css/comment.css" />
     <link rel="stylesheet" href="../css/seo.css" />
+    <link rel="stylesheet" href="../css/desktop-redesign.css" />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap" rel="stylesheet" />
 
     <!-- Google Analytics -->
@@ -81,13 +82,25 @@
             return allowed.includes(lang) ? lang : null;
         }
 
+        function getLangFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            const lang = params.get('lang');
+            const allowed = ['ru', 'ua', 'en', 'he'];
+            return allowed.includes(lang) ? lang : null;
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
-            const lang = getLangFromUrl();
-            if (lang) {
-                const targetBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
-                if (targetBtn) targetBtn.click();
+            const lang = getLangFromUrl() || 'ru';
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            if (typeof applyLanguage === 'function') {
+                applyLanguage(lang);
             }
         });
+
 
         window.addEventListener("load", () => {
             const preloader = document.getElementById("preloader");
@@ -133,7 +146,134 @@
             <span id="phone-number">+972548675869</span>
         </div>
 
-        <header class="hero-image-sale" style="padding-top: 60px;">
+        <div class="lang-switcher" aria-label="Language switcher">
+            <button class="lang-btn" data-lang="ru" aria-label="Русский"></button>
+            <button class="lang-btn" data-lang="ua" aria-label="Українська"></button>
+            <button class="lang-btn" data-lang="en" aria-label="English"></button>
+            <button class="lang-btn" data-lang="he" aria-label="עברית"></button>
+        </div>
+
+
+        <section class="desktop-hero desktop-only">
+            <div class="desktop-hero__content reveal">
+                <span class="desktop-eyebrow">✨ Cartoon-style moving service across Israel</span>
+                <h1>Stress-free moving in Israel — fast, careful, and genuinely friendly</h1>
+                <p>Apartment and office moves, packing, lifting, and delivery. We arrive on time, handle your belongings
+                    with care, and stay in touch through every step.</p>
+                <div class="desktop-hero__actions">
+                    <a href="#form-wrapper-stopper" class="desktop-btn desktop-btn--primary">🚚 Get a Quote</a>
+                    <a href="https://wa.me/972548675869" class="desktop-btn desktop-btn--secondary pulsate" target="_blank">💬
+                        Message on WhatsApp</a>
+                </div>
+                <div class="desktop-stats">
+                    <div class="desktop-stat"><strong>from 99₪</strong><span>starting price for a move</span></div>
+                    <div class="desktop-stat"><strong>all Israel</strong><span>service across the whole country</span>
+                    </div>
+                    <div class="desktop-stat"><strong>careful</strong><span>your furniture and boxes are handled
+                            gently</span></div>
+                </div>
+            </div>
+            <div class="desktop-hero__visual reveal reveal-right">
+                <div class="desktop-hero__card desktop-float">
+                    <img src="../img/desktop-hero-israel.png" alt="Moving service across Israel" />
+                </div>
+            </div>
+        </section>
+
+        <section class="desktop-section desktop-services desktop-only reveal">
+            <div class="desktop-section__heading">
+                <div>
+                    <h2>Our services</h2>
+                </div>
+                <p>We designed the desktop experience around clear service cards and custom illustrations made
+                    especially for large screens.</p>
+            </div>
+            <div class="desktop-services__grid">
+                <article class="desktop-service-card">
+                    <img src="../img/desktop-service-home.png" alt="Apartment moving service" />
+                    <div class="desktop-service-card__content">
+                        <h3 class="desktop-service-card__title">Apartment moves</h3>
+                        <p class="desktop-service-card__text">We move furniture, boxes, and household items quickly
+                            while keeping the day organized and calm.</p>
+                    </div>
+                </article>
+                <article class="desktop-service-card">
+                    <img src="../img/desktop-service-office.png" alt="Office relocation service" />
+                    <div class="desktop-service-card__content">
+                        <h3 class="desktop-service-card__title">Office relocation</h3>
+                        <p class="desktop-service-card__text">We transport desks, monitors, files, and equipment so your
+                            team can get back to work with minimal disruption.</p>
+                    </div>
+                </article>
+                <article class="desktop-service-card">
+                    <img src="../img/desktop-service-packing.png" alt="Packing service" />
+                    <div class="desktop-service-card__content">
+                        <h3 class="desktop-service-card__title">Packing service</h3>
+                        <p class="desktop-service-card__text">We carefully pack fragile items, dishes, books, and small
+                            belongings so everything arrives safely.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="desktop-section desktop-process desktop-only reveal">
+            <div class="desktop-process__visual">
+                <img src="../img/desktop-process.png" alt="Moving process illustration" />
+            </div>
+            <div>
+                <div class="desktop-section__heading" style="margin-bottom:0; display:block;">
+                    <h2>How it works</h2>
+                    <p>A simple, clear process from the first message to the final box in your new place.</p>
+                </div>
+                <div class="desktop-steps">
+                    <div class="desktop-step">
+                        <div class="desktop-step__num">1</div>
+                        <div class="desktop-step__text"><strong class="desktop-step__title">Request</strong>You send us
+                            your details and tell us what needs to be moved.</div>
+                    </div>
+                    <div class="desktop-step">
+                        <div class="desktop-step__num">2</div>
+                        <div class="desktop-step__text"><strong class="desktop-step__title">Preparation</strong>We
+                            confirm the date, building access, elevator, floors, and the amount of items.</div>
+                    </div>
+                    <div class="desktop-step">
+                        <div class="desktop-step__num">3</div>
+                        <div class="desktop-step__text"><strong class="desktop-step__title">Loading</strong>We carefully
+                            pack, carry, and load furniture, boxes, and fragile items.</div>
+                    </div>
+                    <div class="desktop-step">
+                        <div class="desktop-step__num">4</div>
+                        <div class="desktop-step__text"><strong class="desktop-step__title">Delivery</strong>We bring
+                            everything to the new address and help finish the move smoothly.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="desktop-section desktop-trust desktop-only reveal">
+            <div>
+                <div class="desktop-section__heading" style="margin-bottom:0; display:block;">
+                    <h2>Why clients trust us</h2>
+                    <p>We focus on clear communication, careful handling, and a moving day that feels controlled instead
+                        of chaotic.</p>
+                </div>
+                <div class="desktop-checks">
+                    <div class="desktop-check">We explain the move clearly and tell you what to prepare in advance.
+                    </div>
+                    <div class="desktop-check">We treat furniture, boxes, and delicate items with care.</div>
+                    <div class="desktop-check">We adapt to your schedule and the specific details of the move.</div>
+                    <div class="desktop-check">We stay available on WhatsApp and answer quickly.</div>
+                </div>
+                <div class="desktop-note">Stress-free moving is not just a slogan — it is the feeling we want every
+                    customer to keep after the job is done.</div>
+            </div>
+            <div class="desktop-trust__visual">
+                <img src="../img/desktop-support.png" alt="Friendly moving service" />
+            </div>
+        </section>
+
+
+        <header class="hero-image-sale mobile-visual-shell" style="padding-top: 60px;">
             <h1 class="main-title">
                 🚛 Apartment moves across Israel — stress-free!
 
@@ -151,7 +291,7 @@
 
         </header>
 
-        <div class="container">
+        <div class="container mobile-visual-shell">
             <img src="../img/background_he.jpg" alt="bg-img"
                 style="opacity: 0; position: absolute; width: 1px; top:0; z-index: 0;">
             <img src="../img/background_ua.jpg" alt="bg-img"
@@ -175,19 +315,13 @@
 
         </div>
 
-        <header class="hero-image">
+        <header class="hero-image mobile-visual-shell">
             <img src="../img/moving_with_the_magic_of_portals.jpg" alt="Переезд с магией порталов" />
         </header>
 
         <div class="form-container" id="form-container">
-            <div class="lang-switcher">
-                <button class="lang-btn active" data-lang="ru" title="Русский"></button>
-                <button class="lang-btn" data-lang="ua" title="Українська"></button>
-                <button class="lang-btn" data-lang="en" title="English"></button>
-                <button class="lang-btn" data-lang="he" title="עברית"></button>
-            </div>
             <div id="form-wrapper-stopper"></div>
-            <div class="form-wrapper" id="form-wrapper">
+            <div class="form-wrapper reveal" id="form-wrapper">
                 <h2 id="form-title">Leave a Request
                 </h2>
                 <form>
@@ -197,12 +331,29 @@
                     <button type="submit" id="submit-btn">Send</button>
                 </form>
             </div>
+
+            <div class="desktop-form-side reveal">
+                <div class="desktop-form-side__card">
+                    <img src="../img/desktop-support.png" alt="Stress-free moving" />
+                    <div class="desktop-form-side__text">
+                        <h3>Tell us about your move</h3>
+                        <p>Leave a request and we will contact you to confirm the details and suggest the most
+                            convenient moving option.</p>
+                        <ul class="desktop-mini-list">
+                            <li>Where the move starts and where it ends</li>
+                            <li>Your preferred date and time</li>
+                            <li>Floors, elevator access, and large furniture</li>
+                            <li>Whether you need packing help or extra movers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <header class="hero-image">
+        <header class="hero-image mobile-visual-shell">
             <img src="../img/moving_with_the_magic_of_portals_2.jpg" alt="Переезд с магией порталов 2" />
         </header>
-        <div class="review-card owner-review" id="owner-review">
+        <div class="review-card owner-review reveal" id="owner-review">
             <div class="review-header">
                 <img src="../img/mykola.jpg" alt="Николай Бутылков" class="review-avatar-owner" />
                 <div>
@@ -225,7 +376,7 @@
                 </p>
             </div>
         </div>
-        <div class="review-form">
+        <div class="review-form reveal">
             <h2>Leave a Review
             </h2>
             <input type="text" id="nameReview" placeholder="Name" />
@@ -249,12 +400,14 @@
             <button onclick="submitReview()">Send</button>
         </div>
 
-        <div class="container">
-            <h2 class="header-costomer-review">Our Clients’ Reviews 🥰</h2>
-        </div>
+        <section class="reviews-shell reveal">
+            <div class="container">
+                <h2 class="header-costomer-review">Our Clients’ Reviews 🥰</h2>
+            </div>
 
 
-        <div id="reviews-section">Reviews...</div>
+            <div id="reviews-section">Reviews...</div>
+        </section>
         <!-- <p style="text-align: center; margin-top: 40px;">
       <a href="admin.html" style="color: gray; font-size: 14px;">Вход для администратора</a>
     </p> -->
@@ -448,6 +601,7 @@
         });
     </script>
 
+    <script src="../js/desktop-redesign.js"></script>
     <script src="../js/script.js"></script>
     <script src="../js/owner-review.js"></script>
 
@@ -479,7 +633,7 @@
             transportation.
         </p>
         <p>
-            Our team works every day, honestly and with care for each client. Order your move from 999₪ — and see for
+            Our team works every day, honestly and with care for each client. Order your move from 99₪ — and see for
             yourself!
         </p>
     </div>

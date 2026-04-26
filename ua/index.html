@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 
 <head>
     <!-- Основные метаданные -->
@@ -7,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO -->
-    <title>Переїзд без стресу по Ізраїлю — від 999₪</title>
+    <title>Переїзд без стресу по Ізраїлю — від 99₪</title>
     <meta name="description"
-        content="Квартирні переїзди по Ізраїлю: пакування, підйом, перевезення. Надійно і без стресу — від 999₪.">
+        content="Квартирні переїзди по Ізраїлю: пакування, підйом, перевезення. Надійно і без стресу — від 99₪.">
     <meta name="keywords"
         content="переїзд, переїзд Ізраїль, квартирний переїзд, вантажники, перевезення меблів, Тель-Авів, Хайфа, Єрусалим, Бат-Ям, переїзд без стресу">
     <link rel="canonical" href="https://veselepereezdy.com/">
 
     <!-- Open Graph (соцсети) -->
-    <meta property="og:title" content="Переезд по Израилю без стресса — от 999₪">
+    <meta property="og:title" content="Переезд по Израилю без стресса — от 99₪">
     <meta property="og:description" content="Квартирные и офисные переезды по всей стране. Быстро, честно и с заботой.">
     <meta property="og:image" content="https://veselepereezdy.com/img/og-image.jpg">
     <meta property="og:url" content="https://veselepereezdy.com/">
@@ -24,7 +24,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Переезд по Израилю без стресса">
-    <meta name="twitter:description" content="Переезды от 999₪ по Тель-Авиву, Хайфе и всему Израилю.">
+    <meta name="twitter:description" content="Переезды от 99₪ по Тель-Авиву, Хайфе и всему Израилю.">
     <meta name="twitter:image" content="https://veselepereezdy.com/img/og-image.jpg">
 
     <!-- Язык -->
@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="../css/owner.css" />
     <link rel="stylesheet" href="../css/comment.css" />
     <link rel="stylesheet" href="../css/seo.css" />
+    <link rel="stylesheet" href="../css/desktop-redesign.css" />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap" rel="stylesheet" />
 
     <!-- Google Analytics -->
@@ -73,20 +74,25 @@
             }
         });
 
-        function getLangFromUrl() {
+ function getLangFromUrl() {
             const params = new URLSearchParams(window.location.search);
             const lang = params.get('lang');
             const allowed = ['ru', 'ua', 'en', 'he'];
             return allowed.includes(lang) ? lang : null;
         }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            const lang = getLangFromUrl();
-            if (lang) {
-                const targetBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
-                if (targetBtn) targetBtn.click();
-            }
-        });
+       window.addEventListener('DOMContentLoaded', () => {
+  const lang = getLangFromUrl() || 'ru';
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  if (typeof applyLanguage === 'function') {
+    applyLanguage(lang);
+  }
+});
+
 
         window.addEventListener("load", () => {
             const preloader = document.getElementById("preloader");
@@ -131,7 +137,105 @@
             <span id="phone-number">+972548675869</span>
         </div>
 
-        <header class="hero-image-sale" style="padding-top: 60px;">
+        <div class="lang-switcher" aria-label="Language switcher">
+  <button class="lang-btn" data-lang="ru" aria-label="Русский"></button>
+  <button class="lang-btn" data-lang="ua" aria-label="Українська"></button>
+  <button class="lang-btn" data-lang="en" aria-label="English"></button>
+  <button class="lang-btn" data-lang="he" aria-label="עברית"></button>
+</div>
+
+        
+        <section class="desktop-hero desktop-only">
+            <div class="desktop-hero__content reveal">
+                <span class="desktop-eyebrow">✨ Мультяшний сервіс переїздів по всьому Ізраїлю</span>
+                <h1>Переїзд по Ізраїлю без стресу — швидко, акуратно й з хорошим настроєм</h1>
+                <p>Квартирні та офісні переїзди, пакування, підйом і доставка. Приїжджаємо вчасно, дбайливо ставимося до речей і тримаємо зв’язок на кожному етапі.</p>
+                <div class="desktop-hero__actions">
+                    <a href="#form-wrapper-stopper" class="desktop-btn desktop-btn--primary">🚚 Залишити заявку</a>
+                    <a href="https://wa.me/972548675869" class="desktop-btn desktop-btn--secondary pulsate" target="_blank">💬 Написати в WhatsApp</a>
+                </div>
+                <div class="desktop-stats">
+                    <div class="desktop-stat"><strong>від 99₪</strong><span>стартова ціна на переїзд</span></div>
+                    <div class="desktop-stat"><strong>по Ізраїлю</strong><span>працюємо по всій країні</span></div>
+                    <div class="desktop-stat"><strong>обережно</strong><span>дбайливо поводимося з речами</span></div>
+                </div>
+            </div>
+            <div class="desktop-hero__visual reveal reveal-right">
+                <div class="desktop-hero__card desktop-float">
+                    <img src="../img/desktop-hero-israel.png" alt="Переїзд по Ізраїлю" />
+                </div>
+            </div>
+        </section>
+
+        <section class="desktop-section desktop-services desktop-only reveal">
+            <div class="desktop-section__heading">
+                <div><h2>Наші послуги</h2></div>
+                <p>Для десктопної версії ми оновили подачу: окремі ілюстрації, картки послуг і чисту композицію для великих екранів.</p>
+            </div>
+            <div class="desktop-services__grid">
+                <article class="desktop-service-card">
+                    <img src="../img/desktop-service-home.png" alt="Квартирний переїзд" />
+                    <div class="desktop-service-card__content">
+                        <h3 class="desktop-service-card__title">Квартирний переїзд</h3>
+                        <p class="desktop-service-card__text">Швидко перевозимо меблі, коробки та техніку, зберігаючи порядок і спокій у день переїзду.</p>
+                    </div>
+                </article>
+                <article class="desktop-service-card">
+                    <img src="../img/desktop-service-office.png" alt="Офісний переїзд" />
+                    <div class="desktop-service-card__content">
+                        <h3 class="desktop-service-card__title">Офісний переїзд</h3>
+                        <p class="desktop-service-card__text">Перевозимо робочі місця, техніку й документи так, щоб команда швидко повернулася до роботи.</p>
+                    </div>
+                </article>
+                <article class="desktop-service-card">
+                    <img src="../img/desktop-service-packing.png" alt="Пакування речей" />
+                    <div class="desktop-service-card__content">
+                        <h3 class="desktop-service-card__title">Пакування речей</h3>
+                        <p class="desktop-service-card__text">Акуратно пакуємо крихкі речі, посуд, книги та дрібниці, щоб усе доїхало цілим.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="desktop-section desktop-process desktop-only reveal">
+            <div class="desktop-process__visual">
+                <img src="../img/desktop-process.png" alt="Як проходить переїзд" />
+            </div>
+            <div>
+                <div class="desktop-section__heading" style="margin-bottom:0; display:block;">
+                    <h2>Як проходить переїзд</h2>
+                    <p>Зрозумілий процес без плутанини: від першого повідомлення до доставки речей у новий дім.</p>
+                </div>
+                <div class="desktop-steps">
+                    <div class="desktop-step"><div class="desktop-step__num">1</div><div class="desktop-step__text"><strong class="desktop-step__title">Заявка</strong>Ви залишаєте номер телефону та коротко описуєте, що потрібно перевезти.</div></div>
+                    <div class="desktop-step"><div class="desktop-step__num">2</div><div class="desktop-step__text"><strong class="desktop-step__title">Підготовка</strong>Уточнюємо деталі, обсяг речей, поверхи, ліфт і зручний час.</div></div>
+                    <div class="desktop-step"><div class="desktop-step__num">3</div><div class="desktop-step__text"><strong class="desktop-step__title">Завантаження</strong>Акуратно пакуємо та переносимо меблі, коробки й техніку без зайвої метушні.</div></div>
+                    <div class="desktop-step"><div class="desktop-step__num">4</div><div class="desktop-step__text"><strong class="desktop-step__title">Доставка</strong>Привозимо все на нову адресу й допомагаємо завершити переїзд спокійно.</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="desktop-section desktop-trust desktop-only reveal">
+            <div>
+                <div class="desktop-section__heading" style="margin-bottom:0; display:block;">
+                    <h2>Чому нам довіряють</h2>
+                    <p>Ми робимо сервіс по‑людськи: без нервів, з нормальною комунікацією та увагою до деталей.</p>
+                </div>
+                <div class="desktop-checks">
+                    <div class="desktop-check">Чесно пояснюємо, як проходитиме переїзд і що варто підготувати заздалегідь.</div>
+                    <div class="desktop-check">Дбайливо переносимо меблі, коробки та крихкі речі.</div>
+                    <div class="desktop-check">Підлаштовуємося під ваш графік і особливості переїзду.</div>
+                    <div class="desktop-check">Залишаємося на зв’язку у WhatsApp і відповідаємо без довгих пауз.</div>
+                </div>
+                <div class="desktop-note">Без стресу — просто переїзд. Саме таке відчуття ми хочемо залишити після нашої роботи.</div>
+            </div>
+            <div class="desktop-trust__visual">
+                <img src="../img/desktop-support.png" alt="Дружній сервіс переїздів" />
+            </div>
+        </section>
+
+
+        <header class="hero-image-sale mobile-visual-shell" style="padding-top: 60px;">
             <h1 class="main-title">
                 🚛 Квартирні переїзди по Ізраїлю — без стресу!
 
@@ -149,7 +253,7 @@
 
         </header>
 
-        <div class="container">
+        <div class="container mobile-visual-shell">
             <img src="../img/background_he.jpg" alt="bg-img"
                 style="opacity: 0; position: absolute; width: 1px; top:0; z-index: 0;">
             <img src="../img/background_ua.jpg" alt="bg-img"
@@ -163,7 +267,7 @@
                     <div class="close-icon">✖</div>
                     <button class="button-panel_button" id="call-button-2"
                         onclick="window.location.href='tel:+972548675869'">📞
-                        Позвонить</button>
+                        Подзвонить</button>
                     <button class="button-panel_button" onclick="window.open('https://wa.me/972548675869', '_blank')">💬
                         WhatsApp</button>
                 </div>
@@ -173,19 +277,13 @@
 
         </div>
 
-        <header class="hero-image">
+        <header class="hero-image mobile-visual-shell">
             <img src="../img/moving_with_the_magic_of_portals.jpg" alt="Переезд с магией порталов" />
         </header>
 
         <div class="form-container" id="form-container">
-            <div class="lang-switcher">
-                <button class="lang-btn" data-lang="ru" title="Русский"></button>
-                <button class="lang-btn active" data-lang="ua" title="Українська"></button>
-                <button class="lang-btn" data-lang="en" title="English"></button>
-                <button class="lang-btn" data-lang="he" title="עברית"></button>
-            </div>
             <div id="form-wrapper-stopper"></div>
-            <div class="form-wrapper" id="form-wrapper">
+            <div class="form-wrapper reveal" id="form-wrapper">
                 <h2 id="form-title">Залишити заявку</h2>
                 <form>
                     <input type="text" id="name" placeholder="Им'я" required />
@@ -194,12 +292,28 @@
                     <button type="submit" id="submit-btn">Відправити</button>
                 </form>
             </div>
+
+            <div class="desktop-form-side reveal">
+                <div class="desktop-form-side__card">
+                    <img src="../img/desktop-support.png" alt="Переїзд без стресу" />
+                    <div class="desktop-form-side__text">
+                        <h3>Розкажіть про свій переїзд</h3>
+                        <p>Залиште заявку, а ми зв’яжемося з вами та уточнимо деталі, щоб запропонувати зручний формат переїзду.</p>
+                        <ul class="desktop-mini-list">
+                            <li>Звідки й куди потрібно перевезти речі</li>
+                            <li>Дата переїзду та бажаний час</li>
+                            <li>Чи є ліфт, поверхи та великі меблі</li>
+                            <li>Чи потрібне пакування й додаткові вантажники</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <header class="hero-image">
+        <header class="hero-image mobile-visual-shell">
             <img src="../img/moving_with_the_magic_of_portals_2.jpg" alt="Переезд с магией порталов 2" />
         </header>
-        <div class="review-card owner-review" id="owner-review">
+        <div class="review-card owner-review reveal" id="owner-review">
             <div class="review-header">
                 <img src="../img/mykola.jpg" alt="Микола Бутилков" class="review-avatar-owner" />
                 <div>
@@ -222,7 +336,7 @@
                 </p>
             </div>
         </div>
-        <div class="review-form">
+        <div class="review-form reveal">
             <h2>Залишити відгук</h2>
             <input type="text" id="nameReview" placeholder="Имя" />
             <textarea id="messageReview" placeholder="Ваш отзыв..."></textarea>
@@ -245,12 +359,14 @@
             <button onclick="submitReview()">Відправити</button>
         </div>
 
+        <section class="reviews-shell reveal">
         <div class="container">
             <h2 class="header-costomer-review">Відгуки наших клієнтів 🥰</h2>
         </div>
 
 
         <div id="reviews-section">Відгуки...</div>
+        </section>
         <!-- <p style="text-align: center; margin-top: 40px;">
       <a href="admin.html" style="color: gray; font-size: 14px;">Вход для администратора</a>
     </p> -->
@@ -444,6 +560,7 @@
         });
     </script>
 
+    <script src="../js/desktop-redesign.js"></script>
     <script src="../js/script.js"></script>
     <script src="../js/owner-review.js"></script>
 
@@ -476,7 +593,7 @@
             Услуги включают: упаковку, разборку и сборку мебели, подъем на этаж, аккуратную транспортировку вещей.
         </p>
         <p>
-            Наша команда работает без выходных, честно и с заботой о каждом клиенте. Закажите переезд от 999₪ — и
+            Наша команда работает без выходных, честно и с заботой о каждом клиенте. Закажите переезд от 99₪ — и
             убедитесь сами!
         </p>
     </div>
