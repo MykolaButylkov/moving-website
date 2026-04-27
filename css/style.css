@@ -256,7 +256,7 @@ a:focus {
   margin-top: 10px;
   margin-left: 10px;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   z-index: 9;
   left: 0;
   top: 0;
