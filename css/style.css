@@ -396,9 +396,11 @@ a:focus {
 .lang-switcher {
   display: flex;
   gap: 10px;
-  position: absolute;
+  position: fixed;
   top: 15px;
   right: 15px;
+  z-index: 10000;
+  pointer-events: auto;
 }
 
 .lang-btn {
@@ -410,6 +412,9 @@ a:focus {
   border-radius: 6px;
   cursor: pointer;
   outline: none;
+  position: relative;
+  z-index: 10001;
+  pointer-events: auto;
 }
 
 /* Фоны для неактивных кнопок */

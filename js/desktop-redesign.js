@@ -1,24 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const langMap = {
-    ru: '/ru/?lang=ru',
-    ua: '/ua/?lang=ua',
-    en: '/en/?lang=en',
-    he: '/he/?lang=he'
-  };
-
-  document.querySelectorAll('.lang-btn').forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      const lang = btn.dataset.lang;
-      const target = langMap[lang];
-      if (target) {
-        window.location.href = target;
-      }
-    }, true);
-  });
-
   const path = window.location.pathname;
+
   if (path.includes('/he/')) {
     document.documentElement.lang = 'he';
     document.documentElement.dir = 'rtl';
@@ -33,7 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.dir = 'ltr';
   }
 
-  const revealTargets = document.querySelectorAll('.reveal, .owner-review, .review-form, .reviews-shell');
+  const revealTargets = document.querySelectorAll(
+    '.reveal, .owner-review, .review-form, .reviews-shell'
+  );
+
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -42,7 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
 
     revealTargets.forEach((el) => observer.observe(el));
   } else {
@@ -51,13 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const heroCard = document.querySelector('.desktop-hero__card');
   const heroVisual = document.querySelector('.desktop-hero__visual');
+
   if (heroCard && heroVisual && window.innerWidth >= 1024) {
     heroVisual.addEventListener('mousemove', (e) => {
       const rect = heroVisual.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
       const y = ((e.clientY - rect.top) / rect.height - 0.5) * -8;
+
       heroCard.style.transform = `rotate(1deg) translate(${x}px, ${y}px)`;
     });
+
     heroVisual.addEventListener('mouseleave', () => {
       heroCard.style.transform = 'rotate(1deg) translate(0, 0)';
     });

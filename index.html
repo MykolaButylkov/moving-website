@@ -60,6 +60,15 @@
     })(window, document, 'script', 'dataLayer', 'GTM-W53BNJP9');</script>
   <!-- End Google Tag Manager -->
 
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const path = window.location.pathname;
+      if (path === '/' || path === '/index.html') {
+        window.location.replace('/ru/?lang=ru');
+      }
+    });
+  </script>
+
   <!-- Приватность и язык -->
   <script>
     function acceptPrivacy() {
@@ -98,14 +107,7 @@
   </script>
 </head>
 
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const path = window.location.pathname;
-    if (path === '/' || path === '/index.html') {
-      window.location.replace('/ru/?lang=ru');
-    }
-  });
-</script>
+
 
 <body>
   <!-- Google Tag Manager (noscript) -->

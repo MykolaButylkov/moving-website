@@ -563,7 +563,8 @@
   .form-container {
     position: relative;
     display: grid;
-    display: flex;;
+    display: flex;
+    ;
     gap: 24px;
     align-items: stretch;
     max-width: none;
@@ -822,8 +823,7 @@
 
   .desktop-hero,
   .desktop-process,
-  .desktop-trust,
-  {
+  .desktop-trust {
   grid-template-columns: 1fr;
 }
 
