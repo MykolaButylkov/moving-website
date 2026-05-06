@@ -60,7 +60,22 @@
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-W53BNJP9');</script>
     <!-- End Google Tag Manager -->
+    <script>
+        function sendGoogleAdsLeadConversion() {
+            if (typeof gtag !== 'function') {
+                console.warn('Google Ads gtag не найден');
+                return;
+            }
 
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17102315198/qpU6CMyqqKgcEL69gts_',
+                'value': 1.0,
+                'currency': 'ILS'
+            });
+
+            console.log('Google Ads conversion sent');
+        }
+    </script>
     <!-- Приватность и язык -->
     <script>
         function acceptPrivacy() {
@@ -74,24 +89,24 @@
             }
         });
 
- function getLangFromUrl() {
+        function getLangFromUrl() {
             const params = new URLSearchParams(window.location.search);
             const lang = params.get('lang');
             const allowed = ['ru', 'ua', 'en', 'he'];
             return allowed.includes(lang) ? lang : null;
         }
 
-       window.addEventListener('DOMContentLoaded', () => {
-  const lang = getLangFromUrl() || 'ru';
+        window.addEventListener('DOMContentLoaded', () => {
+            const lang = getLangFromUrl() || 'ru';
 
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
 
-  if (typeof applyLanguage === 'function') {
-    applyLanguage(lang);
-  }
-});
+            if (typeof applyLanguage === 'function') {
+                applyLanguage(lang);
+            }
+        });
 
 
         window.addEventListener("load", () => {
@@ -138,20 +153,22 @@
         </div>
 
         <div class="lang-switcher" aria-label="Language switcher">
-  <button class="lang-btn" data-lang="ru" aria-label="Русский"></button>
-  <button class="lang-btn" data-lang="ua" aria-label="Українська"></button>
-  <button class="lang-btn" data-lang="en" aria-label="English"></button>
-  <button class="lang-btn" data-lang="he" aria-label="עברית"></button>
-</div>
+            <button class="lang-btn" data-lang="ru" aria-label="Русский"></button>
+            <button class="lang-btn" data-lang="ua" aria-label="Українська"></button>
+            <button class="lang-btn" data-lang="en" aria-label="English"></button>
+            <button class="lang-btn" data-lang="he" aria-label="עברית"></button>
+        </div>
 
-        
+
         <section class="desktop-hero desktop-only">
             <div class="desktop-hero__content reveal">
                 <h1>Переїзд по Ізраїлю без стресу — швидко, акуратно й з хорошим настроєм</h1>
-                <p>Квартирні та офісні переїзди, пакування, підйом і доставка. Приїжджаємо вчасно, дбайливо ставимося до речей і тримаємо зв’язок на кожному етапі.</p>
+                <p>Квартирні та офісні переїзди, пакування, підйом і доставка. Приїжджаємо вчасно, дбайливо ставимося до
+                    речей і тримаємо зв’язок на кожному етапі.</p>
                 <div class="desktop-hero__actions">
                     <a href="#form-wrapper-stopper" class="desktop-btn desktop-btn--primary">🚚 Залишити заявку</a>
-                    <a href="https://wa.me/972548675869" class="desktop-btn desktop-btn--secondary pulsate" target="_blank">💬 Написати в WhatsApp</a>
+                    <a href="https://wa.me/972548675869" class="desktop-btn desktop-btn--secondary pulsate"
+                        target="_blank">💬 Написати в WhatsApp</a>
                 </div>
                 <div class="desktop-stats">
                     <div class="desktop-stat"><strong>від 99₪</strong><span>стартова ціна на переїзд</span></div>
@@ -168,29 +185,35 @@
 
         <section class="desktop-section desktop-services desktop-only reveal">
             <div class="desktop-section__heading">
-                <div><h2>Наші послуги</h2></div>
-                <p>Для десктопної версії ми оновили подачу: окремі ілюстрації, картки послуг і чисту композицію для великих екранів.</p>
+                <div>
+                    <h2>Наші послуги</h2>
+                </div>
+                <p>Для десктопної версії ми оновили подачу: окремі ілюстрації, картки послуг і чисту композицію для
+                    великих екранів.</p>
             </div>
             <div class="desktop-services__grid">
                 <article class="desktop-service-card">
                     <img src="../img/desktop-service-home.png" alt="Квартирний переїзд" />
                     <div class="desktop-service-card__content">
                         <h3 class="desktop-service-card__title">Квартирний переїзд</h3>
-                        <p class="desktop-service-card__text">Швидко перевозимо меблі, коробки та техніку, зберігаючи порядок і спокій у день переїзду.</p>
+                        <p class="desktop-service-card__text">Швидко перевозимо меблі, коробки та техніку, зберігаючи
+                            порядок і спокій у день переїзду.</p>
                     </div>
                 </article>
                 <article class="desktop-service-card">
                     <img src="../img/desktop-service-office.png" alt="Офісний переїзд" />
                     <div class="desktop-service-card__content">
                         <h3 class="desktop-service-card__title">Офісний переїзд</h3>
-                        <p class="desktop-service-card__text">Перевозимо робочі місця, техніку й документи так, щоб команда швидко повернулася до роботи.</p>
+                        <p class="desktop-service-card__text">Перевозимо робочі місця, техніку й документи так, щоб
+                            команда швидко повернулася до роботи.</p>
                     </div>
                 </article>
                 <article class="desktop-service-card">
                     <img src="../img/desktop-service-packing.png" alt="Пакування речей" />
                     <div class="desktop-service-card__content">
                         <h3 class="desktop-service-card__title">Пакування речей</h3>
-                        <p class="desktop-service-card__text">Акуратно пакуємо крихкі речі, посуд, книги та дрібниці, щоб усе доїхало цілим.</p>
+                        <p class="desktop-service-card__text">Акуратно пакуємо крихкі речі, посуд, книги та дрібниці,
+                            щоб усе доїхало цілим.</p>
                     </div>
                 </article>
             </div>
@@ -206,10 +229,27 @@
                     <p>Зрозумілий процес без плутанини: від першого повідомлення до доставки речей у новий дім.</p>
                 </div>
                 <div class="desktop-steps">
-                    <div class="desktop-step"><div class="desktop-step__num">1</div><div class="desktop-step__text"><strong class="desktop-step__title">Заявка</strong>Ви залишаєте номер телефону та коротко описуєте, що потрібно перевезти.</div></div>
-                    <div class="desktop-step"><div class="desktop-step__num">2</div><div class="desktop-step__text"><strong class="desktop-step__title">Підготовка</strong>Уточнюємо деталі, обсяг речей, поверхи, ліфт і зручний час.</div></div>
-                    <div class="desktop-step"><div class="desktop-step__num">3</div><div class="desktop-step__text"><strong class="desktop-step__title">Завантаження</strong>Акуратно пакуємо та переносимо меблі, коробки й техніку без зайвої метушні.</div></div>
-                    <div class="desktop-step"><div class="desktop-step__num">4</div><div class="desktop-step__text"><strong class="desktop-step__title">Доставка</strong>Привозимо все на нову адресу й допомагаємо завершити переїзд спокійно.</div></div>
+                    <div class="desktop-step">
+                        <div class="desktop-step__num">1</div>
+                        <div class="desktop-step__text"><strong class="desktop-step__title">Заявка</strong>Ви залишаєте
+                            номер телефону та коротко описуєте, що потрібно перевезти.</div>
+                    </div>
+                    <div class="desktop-step">
+                        <div class="desktop-step__num">2</div>
+                        <div class="desktop-step__text"><strong class="desktop-step__title">Підготовка</strong>Уточнюємо
+                            деталі, обсяг речей, поверхи, ліфт і зручний час.</div>
+                    </div>
+                    <div class="desktop-step">
+                        <div class="desktop-step__num">3</div>
+                        <div class="desktop-step__text"><strong
+                                class="desktop-step__title">Завантаження</strong>Акуратно пакуємо та переносимо меблі,
+                            коробки й техніку без зайвої метушні.</div>
+                    </div>
+                    <div class="desktop-step">
+                        <div class="desktop-step__num">4</div>
+                        <div class="desktop-step__text"><strong class="desktop-step__title">Доставка</strong>Привозимо
+                            все на нову адресу й допомагаємо завершити переїзд спокійно.</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -221,12 +261,14 @@
                     <p>Ми робимо сервіс по‑людськи: без нервів, з нормальною комунікацією та увагою до деталей.</p>
                 </div>
                 <div class="desktop-checks">
-                    <div class="desktop-check">Чесно пояснюємо, як проходитиме переїзд і що варто підготувати заздалегідь.</div>
+                    <div class="desktop-check">Чесно пояснюємо, як проходитиме переїзд і що варто підготувати
+                        заздалегідь.</div>
                     <div class="desktop-check">Дбайливо переносимо меблі, коробки та крихкі речі.</div>
                     <div class="desktop-check">Підлаштовуємося під ваш графік і особливості переїзду.</div>
                     <div class="desktop-check">Залишаємося на зв’язку у WhatsApp і відповідаємо без довгих пауз.</div>
                 </div>
-                <div class="desktop-note">Без стресу — просто переїзд. Саме таке відчуття ми хочемо залишити після нашої роботи.</div>
+                <div class="desktop-note">Без стресу — просто переїзд. Саме таке відчуття ми хочемо залишити після нашої
+                    роботи.</div>
             </div>
             <div class="desktop-trust__visual">
                 <img src="../img/desktop-support.png" alt="Дружній сервіс переїздів" />
@@ -297,7 +339,8 @@
                     <img src="../img/desktop-support.png" alt="Переїзд без стресу" />
                     <div class="desktop-form-side__text">
                         <h3>Розкажіть про свій переїзд</h3>
-                        <p>Залиште заявку, а ми зв’яжемося з вами та уточнимо деталі, щоб запропонувати зручний формат переїзду.</p>
+                        <p>Залиште заявку, а ми зв’яжемося з вами та уточнимо деталі, щоб запропонувати зручний формат
+                            переїзду.</p>
                         <ul class="desktop-mini-list">
                             <li>Звідки й куди потрібно перевезти речі</li>
                             <li>Дата переїзду та бажаний час</li>
@@ -359,12 +402,12 @@
         </div>
 
         <section class="reviews-shell reveal">
-        <div class="container">
-            <h2 class="header-costomer-review">Відгуки наших клієнтів 🥰</h2>
-        </div>
+            <div class="container">
+                <h2 class="header-costomer-review">Відгуки наших клієнтів 🥰</h2>
+            </div>
 
 
-        <div id="reviews-section">Відгуки...</div>
+            <div id="reviews-section">Відгуки...</div>
         </section>
         <!-- <p style="text-align: center; margin-top: 40px;">
       <a href="admin.html" style="color: gray; font-size: 14px;">Вход для администратора</a>
@@ -549,6 +592,8 @@
                 .then(res => res.json())
                 .then(data => {
                     if (data.ok) {
+                        sendGoogleAdsLeadConversion();
+
                         alert("✅ Заявка успешно отправлена!");
                         document.querySelector('form').reset();
                     } else {

@@ -61,7 +61,22 @@
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-W53BNJP9');</script>
     <!-- End Google Tag Manager -->
+<script>
+        function sendGoogleAdsLeadConversion() {
+            if (typeof gtag !== 'function') {
+                console.warn('Google Ads gtag не найден');
+                return;
+            }
 
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17102315198/qpU6CMyqqKgcEL69gts_',
+                'value': 1.0,
+                'currency': 'ILS'
+            });
+
+            console.log('Google Ads conversion sent');
+        }
+    </script>
     <!-- Приватность и язык -->
     <script>
         function acceptPrivacy() {
@@ -563,6 +578,8 @@
                 .then(res => res.json())
                 .then(data => {
                     if (data.ok) {
+                        sendGoogleAdsLeadConversion();
+
                         alert("✅ הבקשה נשלחה בהצלחה!");
                         document.querySelector('form').reset();
                     } else {

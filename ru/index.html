@@ -61,6 +61,23 @@
         })(window, document, 'script', 'dataLayer', 'GTM-W53BNJP9');</script>
     <!-- End Google Tag Manager -->
 
+    <script>
+        function sendGoogleAdsLeadConversion() {
+            if (typeof gtag !== 'function') {
+                console.warn('Google Ads gtag не найден');
+                return;
+            }
+
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17102315198/qpU6CMyqqKgcEL69gts_',
+                'value': 1.0,
+                'currency': 'ILS'
+            });
+
+            console.log('Google Ads conversion sent');
+        }
+    </script>
+
     <!-- Приватность и язык -->
     <script>
         function acceptPrivacy() {
@@ -165,7 +182,8 @@
                     вещам и остаёмся на связи на каждом этапе.</p>
                 <div class="desktop-hero__actions">
                     <a href="#form-wrapper-stopper" class="desktop-btn desktop-btn--primary">🚚 Оставить заявку</a>
-                    <a href="https://wa.me/972548675869" class="desktop-btn desktop-btn--secondary pulsate" target="_blank">💬
+                    <a href="https://wa.me/972548675869" class="desktop-btn desktop-btn--secondary pulsate"
+                        target="_blank">💬
                         Написать в WhatsApp</a>
                 </div>
                 <div class="desktop-stats">
@@ -407,9 +425,7 @@
 
             <div id="reviews-section">Reviews...</div>
         </section>
-        <!-- <p style="text-align: center; margin-top: 40px;">
-      <a href="admin.html" style="color: gray; font-size: 14px;">Вход для администратора</a>
-    </p> -->
+        
     </page>
     <script src="../js/sale-img.js"></script>
     <script>
@@ -509,23 +525,6 @@
             }
         });
 
-        // // Обработчик переключения языка
-        // langButtons.forEach(btn => {
-        //     btn.addEventListener('click', () => {
-        //         const lang = btn.dataset.lang;
-
-        //         // Обновляем URL
-        //         const newUrl = `${window.location.pathname}?lang=${lang}`;
-        //         window.history.pushState({ path: newUrl }, '', newUrl);
-
-        //         // Применяем перевод
-        //         applyLanguage(lang);
-
-        //         langButtons.forEach(b => b.classList.remove('active'));
-        //         btn.classList.add('active');
-        //     });
-        // });
-
         // Функция для звонка
         function makeCall() {
             window.location.href = "tel:+972548675869";
@@ -590,6 +589,8 @@
                 .then(res => res.json())
                 .then(data => {
                     if (data.ok) {
+                        sendGoogleAdsLeadConversion();
+
                         alert("✅ Заявка успешно отправлена!");
                         document.querySelector('form').reset();
                     } else {
